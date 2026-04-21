@@ -138,33 +138,6 @@
     <ClInclude Include="Src\Application\Scene.h">
       <Filter>Src\Application</Filter>
     </ClInclude>
-    <ClInclude Include="Src\Application\SceneManager.h">
-      <Filter>Src\Application</Filter>
-    </ClInclude>
-    <ClInclude Include="Src\Application\State.h">
-      <Filter>Src\Application</Filter>
-    </ClInclude>
-    <ClInclude Include="Src\Application\GameScene.h">
-      <Filter>Src\Application</Filter>
-    </ClInclude>
-    <ClInclude Include="Src\Application\TitleScene.h">
-      <Filter>Src\Application</Filter>
-    </ClInclude>
-    <ClInclude Include="Src\Application\Mouse.h">
-      <Filter>Src\Application</Filter>
-    </ClInclude>
-    <ClInclude Include="Src\Application\Title.h">
-      <Filter>Src\Application</Filter>
-    </ClInclude>
-    <ClInclude Include="Src\Application\Player.h">
-      <Filter>Src\Application</Filter>
-    </ClInclude>
-    <ClInclude Include="Src\Application\PlayerBullet.h">
-      <Filter>Src\Application</Filter>
-    </ClInclude>
-    <ClInclude Include="Src\Application\Background.h">
-      <Filter>Src\Application</Filter>
-    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Pch.cpp">
@@ -228,33 +201,6 @@
       <Filter>Src\System\Window</Filter>
     </ClCompile>
     <ClCompile Include="Src\Application\Scene.cpp">
-      <Filter>Src\Application</Filter>
-    </ClCompile>
-    <ClCompile Include="Src\Application\SceneManager.cpp">
-      <Filter>Src\Application</Filter>
-    </ClCompile>
-    <ClCompile Include="Src\Application\State.cpp">
-      <Filter>Src\Application</Filter>
-    </ClCompile>
-    <ClCompile Include="Src\Application\GameScene.cpp">
-      <Filter>Src\Application</Filter>
-    </ClCompile>
-    <ClCompile Include="Src\Application\TitleScene.cpp">
-      <Filter>Src\Application</Filter>
-    </ClCompile>
-    <ClCompile Include="Src\Application\Mouse.cpp">
-      <Filter>Src\Application</Filter>
-    </ClCompile>
-    <ClCompile Include="Src\Application\Title.cpp">
-      <Filter>Src\Application</Filter>
-    </ClCompile>
-    <ClCompile Include="Src\Application\Player.cpp">
-      <Filter>Src\Application</Filter>
-    </ClCompile>
-    <ClCompile Include="Src\Application\PlayerBullet.cpp">
-      <Filter>Src\Application</Filter>
-    </ClCompile>
-    <ClCompile Include="Src\Application\Background.cpp">
       <Filter>Src\Application</Filter>
     </ClCompile>
   </ItemGroup>

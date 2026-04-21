@@ -1,24 +1,27 @@
 #include "main.h"
 #include "Scene.h"
-#include"SceneManager.h"
 
 void Scene::Draw2D()
 {
-	SCENEMANAGER.Draw();
+	// •¶š—ñ•\¦
+	SHADER.m_spriteShader.DrawString(0, 0, "Hello World", Math::Vector4(1, 1, 0, 1));
 }
 
 void Scene::Update()
 {
-	SCENEMANAGER.Update();
+	
 }
 
 void Scene::Init()
 {
-	SCENEMANAGER.ChangeState(new C_TitleScene);
+	// ‰æ‘œ‚Ì“Ç‚İ‚İˆ—
+	charaTex.Load("player.png");
 }
 
 void Scene::Release()
 {
+	// ‰æ‘œ‚Ì‰ğ•úˆ—
+	charaTex.Release();
 }
 
 void Scene::ImGuiUpdate()
