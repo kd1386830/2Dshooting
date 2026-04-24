@@ -9,7 +9,7 @@ void C_Title::Update()
 {
 	if (GetAsyncKeyState(VK_RETURN) & 0x8000)
 	{
-		//C_SceneManager::GetInstans().ChangeState();
+		C_SceneManager::GetInstans().ChangeState(new C_GameScene);
 	}
 }
 

@@ -1,6 +1,6 @@
 #pragma once
-
-class C_State;
+#include"../TitleScene/TitleScene.h"
+#include"../GameScene/Gamescene.h"
 
 class C_SceneManager
 {
@@ -8,7 +8,7 @@ public:
 
 	~C_SceneManager();
 
-	void ChangeState(std::shared_ptr<C_State> newState);
+	void ChangeState(C_State* newState);
 
 	void ChangeFade(C_State* newState);
 	void UpdateFade();
@@ -23,9 +23,7 @@ private:
 
 	C_SceneManager() {}
 
-	std::shared_ptr<C_State> m_currentState;
-
-	//C_State* currentState = nullptr;
+	C_State* currentState = nullptr;
 
 	//C_BackGround m_backGround;
 
@@ -38,5 +36,3 @@ public:
 	}
 
 };
-
-#define SCENEMANAGER C_SceneManager::GetInstans()

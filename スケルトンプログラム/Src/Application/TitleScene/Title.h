@@ -14,4 +14,12 @@ public:
 private:
 
 
+public:
+
+	static C_Title& GetInstans()
+	{
+		static C_Title instans;
+		return instans;
+	}
+
 };

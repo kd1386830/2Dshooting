@@ -1,14 +1,14 @@
 #include"SceneManager.h"
-#include"State.h"
 
 C_SceneManager::~C_SceneManager()
 {
 }
 
-void C_SceneManager::ChangeState(std::shared_ptr<C_State> newState)
+void C_SceneManager::ChangeState(C_State* newState)
 {
-	m_currentState = newState;
-	m_currentState->Init();
+	delete currentState;
+	currentState = newState;
+	currentState->Init();
 }
 
 void C_SceneManager::ChangeFade(C_State* newState)
@@ -51,12 +51,15 @@ void C_SceneManager::UpdateFade()
 
 void C_SceneManager::Init()
 {
+	currentState->Init();
 }
 
 void C_SceneManager::Update()
 {
+	currentState->Update();
 }
 
 void C_SceneManager::Draw()
 {
+	currentState->Draw();
 }

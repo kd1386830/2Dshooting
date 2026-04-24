@@ -4,18 +4,18 @@
 
 void Scene::Draw2D()
 {
-	SCENEMANAGER.Draw();
+	C_SceneManager::GetInstans().Draw();
 }
 
 void Scene::Update()
 {
-	SCENEMANAGER.Update();
+	C_SceneManager::GetInstans().Update();
 }
 
 void Scene::Init()
 {
-	SCENEMANAGER.ChangeState(new C_TitleScene);
-	SCENEMANAGER.Init();
+	C_SceneManager::GetInstans().ChangeState(new C_TitleScene);
+	C_SceneManager::GetInstans().Init();
 }
 
 void Scene::Release()

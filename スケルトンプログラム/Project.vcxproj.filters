@@ -177,6 +177,9 @@
     <ClInclude Include="Src\Application\GameScene\Object\Player\PlayerBullet.h">
       <Filter>Src\Application\GameScene\Object\Player</Filter>
     </ClInclude>
+    <ClInclude Include="Src\Application\TitleScene\Title.h">
+      <Filter>Src\Application\TitleScene</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Pch.cpp">
@@ -262,6 +265,9 @@
     </ClCompile>
     <ClCompile Include="Src\Application\GameScene\Object\Player\PlayerBullet.cpp">
       <Filter>Src\Application\GameScene\Object\Player</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\Application\TitleScene\Title.cpp">
+      <Filter>Src\Application\TitleScene</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

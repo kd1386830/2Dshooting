@@ -167,6 +167,7 @@
     <ClInclude Include="Src\Application\SceneManager\SceneManager.h" />
     <ClInclude Include="Src\Application\SceneManager\State.h" />
     <ClInclude Include="Src\Application\System\Mouse.h" />
+    <ClInclude Include="Src\Application\TitleScene\Title.h" />
     <ClInclude Include="Src\Application\TitleScene\TitleScene.h" />
     <ClInclude Include="Src\System\Audio\KdAudio.h" />
     <ClInclude Include="src\System\Direct3D\KdDirect3D.h" />
@@ -199,6 +200,7 @@
     <ClCompile Include="Src\Application\SceneManager\SceneManager.cpp" />
     <ClCompile Include="Src\Application\SceneManager\State.cpp" />
     <ClCompile Include="Src\Application\System\Mouse.cpp" />
+    <ClCompile Include="Src\Application\TitleScene\Title.cpp" />
     <ClCompile Include="Src\Application\TitleScene\TitleScene.cpp" />
     <ClCompile Include="Src\System\Audio\KdAudio.cpp" />
     <ClCompile Include="src\System\Direct3D\KdDirect3D.cpp" />
