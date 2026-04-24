@@ -61,6 +61,9 @@
     <Filter Include="Src\Application\GameScene\Object\Player">
       <UniqueIdentifier>{fc8af709-1349-4207-ab63-26ed1d5e7a6a}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Src\Application\GameScene\Object\Enemy">
+      <UniqueIdentifier>{082aa111-6803-48f3-a9d3-7539a55f9bfb}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\Pch.h">
@@ -180,6 +183,9 @@
     <ClInclude Include="Src\Application\TitleScene\Title.h">
       <Filter>Src\Application\TitleScene</Filter>
     </ClInclude>
+    <ClInclude Include="Src\Application\GameScene\Object\Enemy\Enemy.h">
+      <Filter>Src\Application\GameScene\Object\Enemy</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Pch.cpp">
@@ -268,6 +274,9 @@
     </ClCompile>
     <ClCompile Include="Src\Application\TitleScene\Title.cpp">
       <Filter>Src\Application\TitleScene</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\Application\GameScene\Object\Enemy\Enemy.cpp">
+      <Filter>Src\Application\GameScene\Object\Enemy</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
