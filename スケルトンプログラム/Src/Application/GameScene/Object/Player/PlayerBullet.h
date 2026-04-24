@@ -31,6 +31,7 @@ private:
 	float m_PBulletMoveX[BulletNum];		//弾の移動量
 	float m_PBulletMoveY[BulletNum];		//弾の移動量
 	float m_PBulletSpeed;					//弾の速度
+	float m_PBulletWait;					//弾の発射間隔
 
 public:
 	static C_PlayerBullet& GetInstance()

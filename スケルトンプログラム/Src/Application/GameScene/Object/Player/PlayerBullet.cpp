@@ -19,13 +19,19 @@ void C_PlayerBullet::Init()
 		m_PBulletFlg[i] = false;
 	}
 	m_PBulletSpeed = 10;
+	m_PBulletWait = 0;
 }
 
 void C_PlayerBullet::Update()
 {
+	m_PBulletWait ++;
+
 	if (GetAsyncKeyState(VK_LBUTTON) & 0x8000)
 	{
+		if (m_PBulletWait > 15)
+		{
 		shot();
+		}
 	}
 
 	for (int i = 0;i < BulletNum;i++)
@@ -72,6 +78,7 @@ void C_PlayerBullet::shot()
 			m_PBulletMoveY[i] = sin(C_Player::GetInstance().GetAngle()) * m_PBulletSpeed;
 
 			m_PBulletFlg[i] = true;
+			m_PBulletWait = 0;
 
 			m_PBulletMat[i] = Math::Matrix::CreateTranslation(m_PBulletPos[i].x, m_PBulletPos[i].y, 0);
 
