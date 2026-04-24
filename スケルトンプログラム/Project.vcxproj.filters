@@ -43,6 +43,24 @@
     <Filter Include="Src\System\Audio">
       <UniqueIdentifier>{667d1cb1-5ae5-476f-acd5-14b7d294a95a}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Src\Application\GameScene">
+      <UniqueIdentifier>{697194a6-5ec8-4bcc-8201-d71875b2a408}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Src\Application\System">
+      <UniqueIdentifier>{5614ae96-e00f-45dc-a013-4450b7346237}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Src\Application\TitleScene">
+      <UniqueIdentifier>{124d8584-c7f8-4060-ac5a-8b4dca467614}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Src\Application\SceneManager">
+      <UniqueIdentifier>{2a3da9d2-ef29-40df-af23-91d8904e7759}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Src\Application\GameScene\Object">
+      <UniqueIdentifier>{fcdb9db0-3061-4193-83fd-d5c91d2439c4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Src\Application\GameScene\Object\Player">
+      <UniqueIdentifier>{fc8af709-1349-4207-ab63-26ed1d5e7a6a}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\Pch.h">
@@ -138,6 +156,27 @@
     <ClInclude Include="Src\Application\Scene.h">
       <Filter>Src\Application</Filter>
     </ClInclude>
+    <ClInclude Include="Src\Application\GameScene\Gamescene.h">
+      <Filter>Src\Application\GameScene</Filter>
+    </ClInclude>
+    <ClInclude Include="Src\Application\System\Mouse.h">
+      <Filter>Src\Application\System</Filter>
+    </ClInclude>
+    <ClInclude Include="Src\Application\TitleScene\TitleScene.h">
+      <Filter>Src\Application\TitleScene</Filter>
+    </ClInclude>
+    <ClInclude Include="Src\Application\SceneManager\SceneManager.h">
+      <Filter>Src\Application\SceneManager</Filter>
+    </ClInclude>
+    <ClInclude Include="Src\Application\SceneManager\State.h">
+      <Filter>Src\Application\SceneManager</Filter>
+    </ClInclude>
+    <ClInclude Include="Src\Application\GameScene\Object\Player\Player.h">
+      <Filter>Src\Application\GameScene\Object\Player</Filter>
+    </ClInclude>
+    <ClInclude Include="Src\Application\GameScene\Object\Player\PlayerBullet.h">
+      <Filter>Src\Application\GameScene\Object\Player</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Pch.cpp">
@@ -202,6 +241,27 @@
     </ClCompile>
     <ClCompile Include="Src\Application\Scene.cpp">
       <Filter>Src\Application</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\Application\System\Mouse.cpp">
+      <Filter>Src\Application\System</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\Application\TitleScene\TitleScene.cpp">
+      <Filter>Src\Application\TitleScene</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\Application\SceneManager\SceneManager.cpp">
+      <Filter>Src\Application\SceneManager</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\Application\SceneManager\State.cpp">
+      <Filter>Src\Application\SceneManager</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\Application\GameScene\GameScene.cpp">
+      <Filter>Src\Application\GameScene</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\Application\GameScene\Object\Player\Player.cpp">
+      <Filter>Src\Application\GameScene\Object\Player</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\Application\GameScene\Object\Player\PlayerBullet.cpp">
+      <Filter>Src\Application\GameScene\Object\Player</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
