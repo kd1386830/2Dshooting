@@ -1,21 +1,21 @@
-#include"Mouse.h"
-#include "../main.h"
+#include "Mouse.h"
+#include"../main.h"
 
-void C_Mouse::Init()
+void Mouse::Init()
 {
 	m_Mouse = GetMousePos();
 }
 
-void C_Mouse::Update()
+void Mouse::Update()
 {
 	m_Mouse = GetMousePos();
 }
 
-void C_Mouse::Draw()
+void Mouse::Draw()
 {
 }
 
-POINT C_Mouse::GetMousePos()
+POINT Mouse::GetMousePos()
 {
 	POINT m;
 	GetCursorPos(&m);
@@ -24,7 +24,4 @@ POINT C_Mouse::GetMousePos()
 	m.y -= ScrHeight / 2;
 	m.y *= -1;
 	return m;
-
 }
-
-

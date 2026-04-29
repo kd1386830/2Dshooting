@@ -43,26 +43,29 @@
     <Filter Include="Src\System\Audio">
       <UniqueIdentifier>{667d1cb1-5ae5-476f-acd5-14b7d294a95a}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Src\Application\GameScene">
-      <UniqueIdentifier>{697194a6-5ec8-4bcc-8201-d71875b2a408}</UniqueIdentifier>
+    <Filter Include="Src\Application\Scene">
+      <UniqueIdentifier>{f7711971-bf99-4fe3-9116-ac2e4bc76c85}</UniqueIdentifier>
     </Filter>
     <Filter Include="Src\Application\System">
-      <UniqueIdentifier>{5614ae96-e00f-45dc-a013-4450b7346237}</UniqueIdentifier>
+      <UniqueIdentifier>{f728fdd0-c965-497d-b280-a3974764fd0a}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Src\Application\TitleScene">
-      <UniqueIdentifier>{124d8584-c7f8-4060-ac5a-8b4dca467614}</UniqueIdentifier>
+    <Filter Include="Src\Application\Scene\BaseScene">
+      <UniqueIdentifier>{cdc82e82-b273-4896-aded-851db0c790e5}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Src\Application\SceneManager">
-      <UniqueIdentifier>{2a3da9d2-ef29-40df-af23-91d8904e7759}</UniqueIdentifier>
+    <Filter Include="Src\Application\Scene\TitleScene">
+      <UniqueIdentifier>{86a55bc6-ffb2-4d57-b0c4-03bff7796196}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Src\Application\GameScene\Object">
-      <UniqueIdentifier>{fcdb9db0-3061-4193-83fd-d5c91d2439c4}</UniqueIdentifier>
+    <Filter Include="Src\Application\Scene\GameScene">
+      <UniqueIdentifier>{910a33e4-4f4e-4929-8ceb-5d6e449d0dce}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Src\Application\GameScene\Object\Player">
-      <UniqueIdentifier>{fc8af709-1349-4207-ab63-26ed1d5e7a6a}</UniqueIdentifier>
+    <Filter Include="Src\Application\Scene\ResultScene">
+      <UniqueIdentifier>{a616f271-4b74-4055-b439-68c29a04e9b6}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Src\Application\GameScene\Object\Enemy">
-      <UniqueIdentifier>{082aa111-6803-48f3-a9d3-7539a55f9bfb}</UniqueIdentifier>
+    <Filter Include="Src\Application\Scene\GameScene\Object">
+      <UniqueIdentifier>{de4507a1-a23c-47e9-b6b2-f6dac8c1238f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Src\Application\Scene\GameScene\Object\Player">
+      <UniqueIdentifier>{1b7a8d40-0801-49ce-8852-188c21f535ce}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -159,32 +162,29 @@
     <ClInclude Include="Src\Application\Scene.h">
       <Filter>Src\Application</Filter>
     </ClInclude>
-    <ClInclude Include="Src\Application\GameScene\Gamescene.h">
-      <Filter>Src\Application\GameScene</Filter>
+    <ClInclude Include="Src\Application\Scene\SceneManager.h">
+      <Filter>Src\Application\Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="Src\Application\Scene\BaseScene\BaseScene.h">
+      <Filter>Src\Application\Scene\BaseScene</Filter>
+    </ClInclude>
+    <ClInclude Include="Src\Application\Scene\TitleScene\TitleScene.h">
+      <Filter>Src\Application\Scene\TitleScene</Filter>
+    </ClInclude>
+    <ClInclude Include="Src\Application\Scene\GameScene\GameScene.h">
+      <Filter>Src\Application\Scene\GameScene</Filter>
+    </ClInclude>
+    <ClInclude Include="Src\Application\Scene\ResultScene\ResultScene.h">
+      <Filter>Src\Application\Scene\ResultScene</Filter>
     </ClInclude>
     <ClInclude Include="Src\Application\System\Mouse.h">
       <Filter>Src\Application\System</Filter>
     </ClInclude>
-    <ClInclude Include="Src\Application\TitleScene\TitleScene.h">
-      <Filter>Src\Application\TitleScene</Filter>
+    <ClInclude Include="Src\Application\Scene\GameScene\Object\BaseObject.h">
+      <Filter>Src\Application\Scene\GameScene\Object</Filter>
     </ClInclude>
-    <ClInclude Include="Src\Application\SceneManager\SceneManager.h">
-      <Filter>Src\Application\SceneManager</Filter>
-    </ClInclude>
-    <ClInclude Include="Src\Application\SceneManager\State.h">
-      <Filter>Src\Application\SceneManager</Filter>
-    </ClInclude>
-    <ClInclude Include="Src\Application\GameScene\Object\Player\Player.h">
-      <Filter>Src\Application\GameScene\Object\Player</Filter>
-    </ClInclude>
-    <ClInclude Include="Src\Application\GameScene\Object\Player\PlayerBullet.h">
-      <Filter>Src\Application\GameScene\Object\Player</Filter>
-    </ClInclude>
-    <ClInclude Include="Src\Application\TitleScene\Title.h">
-      <Filter>Src\Application\TitleScene</Filter>
-    </ClInclude>
-    <ClInclude Include="Src\Application\GameScene\Object\Enemy\Enemy.h">
-      <Filter>Src\Application\GameScene\Object\Enemy</Filter>
+    <ClInclude Include="Src\Application\Scene\GameScene\Object\Player\Player.h">
+      <Filter>Src\Application\Scene\GameScene\Object\Player</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -251,32 +251,29 @@
     <ClCompile Include="Src\Application\Scene.cpp">
       <Filter>Src\Application</Filter>
     </ClCompile>
+    <ClCompile Include="Src\Application\Scene\SceneManager.cpp">
+      <Filter>Src\Application\Scene</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\Application\Scene\BaseScene\BaseScene.cpp">
+      <Filter>Src\Application\Scene\BaseScene</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\Application\Scene\TitleScene\TitleScene.cpp">
+      <Filter>Src\Application\Scene\TitleScene</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\Application\Scene\GameScene\GameScene.cpp">
+      <Filter>Src\Application\Scene\GameScene</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\Application\Scene\ResultScene\ResultScene.cpp">
+      <Filter>Src\Application\Scene\ResultScene</Filter>
+    </ClCompile>
     <ClCompile Include="Src\Application\System\Mouse.cpp">
       <Filter>Src\Application\System</Filter>
     </ClCompile>
-    <ClCompile Include="Src\Application\TitleScene\TitleScene.cpp">
-      <Filter>Src\Application\TitleScene</Filter>
+    <ClCompile Include="Src\Application\Scene\GameScene\Object\BaseObject.cpp">
+      <Filter>Src\Application\Scene\GameScene\Object</Filter>
     </ClCompile>
-    <ClCompile Include="Src\Application\SceneManager\SceneManager.cpp">
-      <Filter>Src\Application\SceneManager</Filter>
-    </ClCompile>
-    <ClCompile Include="Src\Application\SceneManager\State.cpp">
-      <Filter>Src\Application\SceneManager</Filter>
-    </ClCompile>
-    <ClCompile Include="Src\Application\GameScene\GameScene.cpp">
-      <Filter>Src\Application\GameScene</Filter>
-    </ClCompile>
-    <ClCompile Include="Src\Application\GameScene\Object\Player\Player.cpp">
-      <Filter>Src\Application\GameScene\Object\Player</Filter>
-    </ClCompile>
-    <ClCompile Include="Src\Application\GameScene\Object\Player\PlayerBullet.cpp">
-      <Filter>Src\Application\GameScene\Object\Player</Filter>
-    </ClCompile>
-    <ClCompile Include="Src\Application\TitleScene\Title.cpp">
-      <Filter>Src\Application\TitleScene</Filter>
-    </ClCompile>
-    <ClCompile Include="Src\Application\GameScene\Object\Enemy\Enemy.cpp">
-      <Filter>Src\Application\GameScene\Object\Enemy</Filter>
+    <ClCompile Include="Src\Application\Scene\GameScene\Object\Player\Player.cpp">
+      <Filter>Src\Application\Scene\GameScene\Object\Player</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

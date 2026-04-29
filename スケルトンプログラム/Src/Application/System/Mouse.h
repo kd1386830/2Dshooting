@@ -1,9 +1,10 @@
 #pragma once
-class C_Mouse
+
+class Mouse
 {
 public:
 
-	~C_Mouse() {}
+	~Mouse() {}
 
 	void Init();
 	void Update();
@@ -22,12 +23,12 @@ private:
 
 private:
 
-	C_Mouse() {}
+	Mouse() {}
 
 public:
-	static C_Mouse& GetInstance()
+	static Mouse& Instance()
 	{
-		static C_Mouse instance;
+		static Mouse instance;
 		return instance;
 	}
 };

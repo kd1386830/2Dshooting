@@ -1,21 +1,21 @@
 #include "main.h"
 #include "Scene.h"
-#include"SceneManager/SceneManager.h"
+
+#include"Scene/SceneManager.h"
 
 void Scene::Draw2D()
 {
-	C_SceneManager::GetInstans().Draw();
+	SceneManager::Instance().Draw();
 }
 
 void Scene::Update()
 {
-	C_SceneManager::GetInstans().Update();
+	SceneManager::Instance().Update();
 }
 
 void Scene::Init()
 {
-	C_SceneManager::GetInstans().ChangeState(new C_TitleScene);
-	C_SceneManager::GetInstans().Init();
+	SceneManager::Instance().Init();
 }
 
 void Scene::Release()
