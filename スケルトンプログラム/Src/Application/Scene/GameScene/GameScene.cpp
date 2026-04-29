@@ -2,13 +2,20 @@
 #include"../SceneManager.h"
 
 #include"Object/Player/Player.h"
+#include"Object/Enemy/Enemy.h"
 
 void GameScene::Init()
 {
+	//プレイヤー
 	std::shared_ptr<Player> player;
 	player = std::make_shared<Player>();
 	player->Init();
 	m_objList.push_back(player);
+	//敵
+	std::shared_ptr<Enemy> enemy;
+	enemy = std::make_shared<Enemy>();
+	enemy->Init();
+	m_objList.push_back(enemy);
 }
 
 void GameScene::Update()
