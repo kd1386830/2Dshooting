@@ -11,20 +11,40 @@ void GameScene::Init()
 	player = std::make_shared<Player>();
 	player->Init();
 	m_objList.push_back(player);
+
 	//敵
 	std::shared_ptr<Enemy> enemy;
-	enemy = std::make_shared<Enemy>();
-	enemy->Init();
-	m_objList.push_back(enemy);
+	for (int i = 0;i < 10;i++)
+	{
+		enemy = std::make_shared<Enemy>();
+		enemy->Init();
+		m_objList.push_back(enemy);
+	}
 }
 
 void GameScene::Update()
 {
-	for (int i = 0; i < m_objList.size(); ++i)
-	{
-		m_objList[i]->Update();
-	}
+	Player* player = nullptr;
 
+	//Playerを探す
+	for (auto& obj : m_objList)
+	{
+		if (auto p = dynamic_cast<Player*>(obj.get()))
+		{
+			player = p;
+			break;
+		}
+	}
+	//EnemyにPlayerを渡して更新
+	for (auto& obj : m_objList)
+	{
+		if (auto enemy = dynamic_cast<Enemy*>(obj.get()))
+		{
+			enemy->SetTarget(player);
+		}
+
+		obj->Update();
+	}
 
 	if (GetAsyncKeyState('R') & 0x8000)
 	{

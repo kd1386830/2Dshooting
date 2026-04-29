@@ -15,6 +15,8 @@ public:
 	void PlayerMove();		//移動処理
 	void PlayerRotation();	//回転処理
 
+	Math::Vector2 GetPlayerPos() { return m_Pos; }
+
 private:
 
 	void Release()override;
@@ -22,15 +24,9 @@ private:
 	Math::Matrix m_TransMat;	//移動行列
 	Math::Matrix m_RotateMat;	//回転行列
 
-	Math::Vector2 m_MoveVec;	//移動方向ベクトル
+	Math::Vector2 m_MoveVec;	//移動速度ベクトル
 	float m_MoveSpd = 5.0f;		//移動スピード
 
 	float m_Angle;				//角度
 
-public:
-	static Player& Instance()
-	{
-		static Player instance;
-		return instance;
-	}
 };
