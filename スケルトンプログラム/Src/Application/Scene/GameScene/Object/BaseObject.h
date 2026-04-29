@@ -15,11 +15,11 @@ protected:
 
 	virtual void Release();
 
-	KdTexture m_tex;		//テクスチャ
+	KdTexture m_Tex;		//テクスチャ
 
-	Math::Matrix m_mat;		//行列
-	Math::Vector2 m_pos;	//座標
+	Math::Matrix m_Mat;		//行列
+	Math::Vector2 m_Pos;	//座標
 
-	bool m_aliveFlg;		//生存フラグ
+	bool m_AliveFlg;		//生存フラグ
 
 };
