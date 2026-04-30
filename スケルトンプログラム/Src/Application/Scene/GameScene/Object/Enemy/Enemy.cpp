@@ -13,7 +13,6 @@ void Enemy::Init()
 void Enemy::Update()
 {
 	ChasePlayer();
-	m_Pos += m_EnemyVec;
 
 	m_Mat = Math::Matrix::CreateTranslation(m_Pos.x, m_Pos.y, 0);
 }
@@ -62,6 +61,7 @@ void Enemy::ChasePlayer()
 	}
 
 	m_EnemyVec = m_EnemyVec * 0.9f + dir * m_EnemySpd * 0.1f;
+	m_Pos += m_EnemyVec;
 }
 
 void Enemy::Release()
