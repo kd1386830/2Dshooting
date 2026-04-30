@@ -18,6 +18,10 @@ public:
 	void ChasePlayer();			//プレイヤーの方向に進む速度を決める処理
 
 	void SetTarget(Player* player) { m_player = player; }	//追尾対象の座標を取得
+	void SetAliveFlg(bool flg) { m_AliveFlg = flg; }
+	bool GetAliveFlg()			{ return m_AliveFlg; }
+
+	Math::Vector2 GetPos() { return m_Pos; }
 
 private:
 

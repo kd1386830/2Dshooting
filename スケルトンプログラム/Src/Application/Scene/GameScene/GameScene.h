@@ -14,6 +14,8 @@ public:
 	void Update()		override;
 	void Draw()			override;
 
+	std::vector<std::shared_ptr<BaseObject>> GetObjList() { return m_objList; }
+
 private:
 
 	void Release()		override;

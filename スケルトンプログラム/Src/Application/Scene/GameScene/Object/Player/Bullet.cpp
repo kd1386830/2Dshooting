@@ -1,5 +1,9 @@
 #include "Bullet.h"
 #include"Player.h"
+#include"../Enemy/Enemy.h"
+
+#include"../../System/Hit.h"
+#include"../../GameScene.h"
 
 void Bullet::Init()
 {
@@ -30,7 +34,26 @@ void Bullet::Update()
 			m_Pos[i] += m_Move[i];
 		}
 		
+		if (m_OwnerScene)
+		{
+			for (auto& obj : m_OwnerScene->GetObjList())
+			{
+				Enemy* enemy = dynamic_cast<Enemy*>(obj.get());
+				if (enemy)
+				{
+					if (enemy->GetAliveFlg())
+					{
+						if (Hit::Instance().ObjectHit(m_Pos[i], enemy->GetPos(), 16, 64))
+						{
+							m_AliveFlg[i] = false;
+							enemy->SetAliveFlg(false);
+						}
+					}
+				}
+			}
+		}
 
+		
 
 		m_Mat[i] = Math::Matrix::CreateTranslation(m_Pos[i].x, m_Pos[i].y, 0);
 	}

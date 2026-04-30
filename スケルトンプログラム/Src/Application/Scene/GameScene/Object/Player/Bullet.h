@@ -2,7 +2,8 @@
 #include"../BaseObject.h"
 
 class Player;
-
+class Enemy;
+class GameScene;
 class Bullet :public BaseObject
 {
 public:
@@ -17,12 +18,14 @@ public:
 	void Shot();
 
 	void SetPlayer(Player* player) { m_player = player; }
+	void SetOwner(GameScene* owner) { m_OwnerScene = owner; }
 
 private:
 
 	void Release()override;
 
 	Player* m_player = nullptr;
+	GameScene* m_OwnerScene = nullptr;
 
 	static const int BulletNum = 100;
 

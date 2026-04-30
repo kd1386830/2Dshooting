@@ -70,6 +70,9 @@
     <Filter Include="Src\Application\Scene\GameScene\Object\Enemy">
       <UniqueIdentifier>{a392d8d0-3b45-457e-be1e-07418c93208c}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Src\Application\Scene\GameScene\System">
+      <UniqueIdentifier>{02beab13-ca67-47a0-bbaa-4c3221a4971f}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\Pch.h">
@@ -195,6 +198,9 @@
     <ClInclude Include="Src\Application\Scene\GameScene\Object\Player\Bullet.h">
       <Filter>Src\Application\Scene\GameScene\Object\Player</Filter>
     </ClInclude>
+    <ClInclude Include="Src\Application\Scene\GameScene\System\Hit.h">
+      <Filter>Src\Application\Scene\GameScene\System</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Pch.cpp">
@@ -289,6 +295,9 @@
     </ClCompile>
     <ClCompile Include="Src\Application\Scene\GameScene\Object\Player\Bullet.cpp">
       <Filter>Src\Application\Scene\GameScene\Object\Player</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\Application\Scene\GameScene\System\Hit.cpp">
+      <Filter>Src\Application\Scene\GameScene\System</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

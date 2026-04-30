@@ -42,19 +42,21 @@ void GameScene::Update()
 			break;
 		}
 	}
-	//Playerを渡して更新
+	//Enemyを探す
 	for (auto& obj : m_objList)
 	{
-		if (auto enemy = dynamic_cast<Enemy*>(obj.get()))
-		{
-			enemy->SetTarget(player);
-		}
 		if (auto bullet = dynamic_cast<Bullet*>(obj.get()))
 		{
 			bullet->SetPlayer(player);
+			bullet->SetOwner(this);
+		}
+		Enemy* enemy = dynamic_cast<Enemy*>(obj.get());
+		if (enemy && enemy->GetAliveFlg())
+		{
+			enemy->SetTarget(player);//Enemyを渡す
 		}
 
-		obj->Update();
+		obj->Update();//更新
 	}
 
 	if (GetAsyncKeyState('R') & 0x8000)

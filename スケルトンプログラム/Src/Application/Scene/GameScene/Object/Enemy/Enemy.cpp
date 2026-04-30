@@ -12,15 +12,21 @@ void Enemy::Init()
 
 void Enemy::Update()
 {
-	ChasePlayer();
+	if (m_AliveFlg)
+	{
+		ChasePlayer();
+	}
 
 	m_Mat = Math::Matrix::CreateTranslation(m_Pos.x, m_Pos.y, 0);
 }
 
 void Enemy::Draw()
 {
-	SHADER.m_spriteShader.SetMatrix(m_Mat);
-	SHADER.m_spriteShader.DrawTex(&m_Tex, Math::Rectangle(0, 0, 64, 64), 1.0f);
+	if (m_AliveFlg)
+	{
+		SHADER.m_spriteShader.SetMatrix(m_Mat);
+		SHADER.m_spriteShader.DrawTex(&m_Tex, Math::Rectangle(0, 0, 64, 64), 1.0f);
+	}
 }
 
 void Enemy::EnemySpawn()
