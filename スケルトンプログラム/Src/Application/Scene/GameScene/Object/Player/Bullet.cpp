@@ -43,10 +43,13 @@ void Bullet::Update()
 				{
 					if (enemy->GetAliveFlg())
 					{
-						if (Hit::Instance().ObjectHit(m_Pos[i], enemy->GetPos(), 16, 64))
+						if (m_AliveFlg[i])
 						{
-							m_AliveFlg[i] = false;
-							enemy->SetAliveFlg(false);
+							if (Hit::Instance().ObjectHit(m_Pos[i], enemy->GetPos(), 8, 32))
+							{
+								m_AliveFlg[i] = false;
+								enemy->SetAliveFlg(false);
+							}
 						}
 					}
 				}
@@ -77,7 +80,6 @@ void Bullet::Shot()
 	{
 		if (!m_AliveFlg[i])
 		{
-			if (!m_player)return;
 
 			m_Pos[i] = m_player->GetPlayerPos();
 
@@ -89,6 +91,7 @@ void Bullet::Shot()
 
 			m_Mat[i] = Math::Matrix::CreateTranslation(m_Pos[i].x, m_Pos[i].y, 0);
 			break;
+
 		}
 	}
 }
