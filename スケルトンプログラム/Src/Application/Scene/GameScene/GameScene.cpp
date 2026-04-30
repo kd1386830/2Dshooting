@@ -3,6 +3,7 @@
 
 #include"Object/Player/Player.h"
 #include"Object/Enemy/Enemy.h"
+#include"Object/Player/Bullet.h"
 
 void GameScene::Init()
 {
@@ -11,6 +12,12 @@ void GameScene::Init()
 	player = std::make_shared<Player>();
 	player->Init();
 	m_objList.push_back(player);
+
+	//弾
+	std::shared_ptr<Bullet> bullet;
+	bullet = std::make_shared<Bullet>();
+	bullet->Init();
+	m_objList.push_back(bullet);
 
 	//敵
 	std::shared_ptr<Enemy> enemy;
@@ -35,12 +42,16 @@ void GameScene::Update()
 			break;
 		}
 	}
-	//EnemyにPlayerを渡して更新
+	//Playerを渡して更新
 	for (auto& obj : m_objList)
 	{
 		if (auto enemy = dynamic_cast<Enemy*>(obj.get()))
 		{
 			enemy->SetTarget(player);
+		}
+		if (auto bullet = dynamic_cast<Bullet*>(obj.get()))
+		{
+			bullet->SetPlayer(player);
 		}
 
 		obj->Update();

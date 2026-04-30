@@ -16,6 +16,7 @@ public:
 	void PlayerRotation();	//回転処理
 
 	Math::Vector2 GetPlayerPos() { return m_Pos; }
+	float GetAngle() { return m_Angle; }
 
 private:
 
