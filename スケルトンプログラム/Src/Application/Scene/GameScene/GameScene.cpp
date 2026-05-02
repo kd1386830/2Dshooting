@@ -1,5 +1,6 @@
 #include "GameScene.h"
 #include"../SceneManager.h"
+#include"System/Hit.h"
 
 #include"Object/Player/Player.h"
 #include"Object/Enemy/Enemy.h"
@@ -7,17 +8,14 @@
 
 void GameScene::Init()
 {
+	Hit::Instance().SetOwner(this);
+
 	//プレイヤー
 	std::shared_ptr<Player> player;
 	player = std::make_shared<Player>();
 	player->Init();
+	player->SetOwner(this);
 	m_objList.push_back(player);
-
-	//弾
-	std::shared_ptr<Bullet> bullet;
-	bullet = std::make_shared<Bullet>();
-	bullet->Init();
-	m_objList.push_back(bullet);
 
 	//敵
 	std::shared_ptr<Enemy> enemy;
@@ -25,38 +23,32 @@ void GameScene::Init()
 	{
 		enemy = std::make_shared<Enemy>();
 		enemy->Init();
+		enemy->SetOwner(this);
 		m_objList.push_back(enemy);
 	}
 }
 
 void GameScene::Update()
 {
-	Player* player = nullptr;
+	auto it = m_objList.begin();
 
-	//Playerを探す
-	for (auto& obj : m_objList)
+	while (it != m_objList.end())
 	{
-		if (auto p = dynamic_cast<Player*>(obj.get()))
+		if ((*it)->GetAliveFlg() == false)
 		{
-			player = p;
-			break;
+			it = m_objList.erase(it);
+		}
+		else
+		{
+			it++;
 		}
 	}
-	//Enemyを探す
-	for (auto& obj : m_objList)
-	{
-		if (auto bullet = dynamic_cast<Bullet*>(obj.get()))
-		{
-			bullet->SetPlayer(player);
-			bullet->SetOwner(this);
-		}
-		Enemy* enemy = dynamic_cast<Enemy*>(obj.get());
-		if (enemy && enemy->GetAliveFlg())
-		{
-			enemy->SetTarget(player);//Enemyを渡す
-		}
 
-		obj->Update();//更新
+
+
+	for (int i = 0; i < m_objList.size(); ++i)
+	{
+		m_objList[i]->Update();
 	}
 
 	if (GetAsyncKeyState('R') & 0x8000)

@@ -2,6 +2,7 @@
 #include"../BaseObject.h"
 
 class Player;
+class GameScene;
 
 class Enemy :public BaseObject
 {
@@ -14,20 +15,20 @@ public:
 	void Update()override;
 	void Draw()override;
 
+	void OnHit()override;
+
 	void EnemySpawn();			//敵を画面外のランダムな場所に出す処理
 	void ChasePlayer();			//プレイヤーの方向に進む速度を決める処理
 
-	void SetTarget(Player* player) { m_player = player; }	//追尾対象の座標を取得
 	void SetAliveFlg(bool flg) { m_AliveFlg = flg; }
-	bool GetAliveFlg()			{ return m_AliveFlg; }
 
-	Math::Vector2 GetPos() { return m_Pos; }
+	void SetOwner(GameScene* owner) { m_Owner = owner; }
 
 private:
 
 	void Release()override;
 
-	Player* m_player = nullptr;
+	GameScene* m_Owner = nullptr;
 
 	float m_EnemySpd = 3.0f;	//敵の移動スピード
 	Math::Vector2 m_EnemyVec;	//移動速度ベクトル

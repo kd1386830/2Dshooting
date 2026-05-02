@@ -44,37 +44,37 @@
       <UniqueIdentifier>{667d1cb1-5ae5-476f-acd5-14b7d294a95a}</UniqueIdentifier>
     </Filter>
     <Filter Include="Src\Application\Scene">
-      <UniqueIdentifier>{f7711971-bf99-4fe3-9116-ac2e4bc76c85}</UniqueIdentifier>
+      <UniqueIdentifier>{d99f5a63-dbcb-4f6d-bb49-6eda17487043}</UniqueIdentifier>
     </Filter>
     <Filter Include="Src\Application\System">
-      <UniqueIdentifier>{f728fdd0-c965-497d-b280-a3974764fd0a}</UniqueIdentifier>
+      <UniqueIdentifier>{2fb0a323-4485-4e7b-bdc6-9567e9e91827}</UniqueIdentifier>
     </Filter>
     <Filter Include="Src\Application\Scene\BaseScene">
-      <UniqueIdentifier>{cdc82e82-b273-4896-aded-851db0c790e5}</UniqueIdentifier>
+      <UniqueIdentifier>{a431c0c1-391a-4320-8dfc-3dbbe04d1569}</UniqueIdentifier>
     </Filter>
     <Filter Include="Src\Application\Scene\TitleScene">
-      <UniqueIdentifier>{86a55bc6-ffb2-4d57-b0c4-03bff7796196}</UniqueIdentifier>
+      <UniqueIdentifier>{5e04edc5-bb0c-4d5d-89ff-3475054f513e}</UniqueIdentifier>
     </Filter>
     <Filter Include="Src\Application\Scene\GameScene">
-      <UniqueIdentifier>{910a33e4-4f4e-4929-8ceb-5d6e449d0dce}</UniqueIdentifier>
+      <UniqueIdentifier>{c54d0679-8d6a-4ad8-8589-3c8906202fb2}</UniqueIdentifier>
     </Filter>
     <Filter Include="Src\Application\Scene\ResultScene">
-      <UniqueIdentifier>{a616f271-4b74-4055-b439-68c29a04e9b6}</UniqueIdentifier>
+      <UniqueIdentifier>{2ef5b16b-b191-4384-bd1b-b6c76ae11511}</UniqueIdentifier>
     </Filter>
     <Filter Include="Src\Application\Scene\GameScene\Object">
-      <UniqueIdentifier>{de4507a1-a23c-47e9-b6b2-f6dac8c1238f}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Src\Application\Scene\GameScene\Object\Player">
-      <UniqueIdentifier>{1b7a8d40-0801-49ce-8852-188c21f535ce}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Src\Application\Scene\GameScene\Object\Enemy">
-      <UniqueIdentifier>{a392d8d0-3b45-457e-be1e-07418c93208c}</UniqueIdentifier>
+      <UniqueIdentifier>{f060d0b8-b19a-470c-887d-0402feb3b08e}</UniqueIdentifier>
     </Filter>
     <Filter Include="Src\Application\Scene\GameScene\System">
-      <UniqueIdentifier>{02beab13-ca67-47a0-bbaa-4c3221a4971f}</UniqueIdentifier>
+      <UniqueIdentifier>{bf31c078-1d49-4e94-8000-982f8405be87}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Src\Application\Scene\GameScene\Object\Player">
+      <UniqueIdentifier>{3750fa91-0e73-4108-95f1-e5929db740a9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Src\Application\Scene\GameScene\Object\Enemy">
+      <UniqueIdentifier>{24b545d1-7980-406f-8822-81da5f9ea72d}</UniqueIdentifier>
     </Filter>
     <Filter Include="Src\Application\Scene\GameScene\Object\Bullet">
-      <UniqueIdentifier>{abc15542-5009-4996-bae7-61bab09cede0}</UniqueIdentifier>
+      <UniqueIdentifier>{626455df-989f-4294-a30f-bb7186d268ec}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -171,6 +171,9 @@
     <ClInclude Include="Src\Application\Scene.h">
       <Filter>Src\Application</Filter>
     </ClInclude>
+    <ClInclude Include="Src\Application\System\Mouse.h">
+      <Filter>Src\Application\System</Filter>
+    </ClInclude>
     <ClInclude Include="Src\Application\Scene\SceneManager.h">
       <Filter>Src\Application\Scene</Filter>
     </ClInclude>
@@ -180,14 +183,14 @@
     <ClInclude Include="Src\Application\Scene\TitleScene\TitleScene.h">
       <Filter>Src\Application\Scene\TitleScene</Filter>
     </ClInclude>
-    <ClInclude Include="Src\Application\Scene\GameScene\GameScene.h">
-      <Filter>Src\Application\Scene\GameScene</Filter>
-    </ClInclude>
     <ClInclude Include="Src\Application\Scene\ResultScene\ResultScene.h">
       <Filter>Src\Application\Scene\ResultScene</Filter>
     </ClInclude>
-    <ClInclude Include="Src\Application\System\Mouse.h">
-      <Filter>Src\Application\System</Filter>
+    <ClInclude Include="Src\Application\Scene\GameScene\GameScene.h">
+      <Filter>Src\Application\Scene\GameScene</Filter>
+    </ClInclude>
+    <ClInclude Include="Src\Application\Scene\GameScene\System\Hit.h">
+      <Filter>Src\Application\Scene\GameScene\System</Filter>
     </ClInclude>
     <ClInclude Include="Src\Application\Scene\GameScene\Object\BaseObject.h">
       <Filter>Src\Application\Scene\GameScene\Object</Filter>
@@ -197,9 +200,6 @@
     </ClInclude>
     <ClInclude Include="Src\Application\Scene\GameScene\Object\Enemy\Enemy.h">
       <Filter>Src\Application\Scene\GameScene\Object\Enemy</Filter>
-    </ClInclude>
-    <ClInclude Include="Src\Application\Scene\GameScene\System\Hit.h">
-      <Filter>Src\Application\Scene\GameScene\System</Filter>
     </ClInclude>
     <ClInclude Include="Src\Application\Scene\GameScene\Object\Bullet\Bullet.h">
       <Filter>Src\Application\Scene\GameScene\Object\Bullet</Filter>
@@ -269,6 +269,9 @@
     <ClCompile Include="Src\Application\Scene.cpp">
       <Filter>Src\Application</Filter>
     </ClCompile>
+    <ClCompile Include="Src\Application\System\Mouse.cpp">
+      <Filter>Src\Application\System</Filter>
+    </ClCompile>
     <ClCompile Include="Src\Application\Scene\SceneManager.cpp">
       <Filter>Src\Application\Scene</Filter>
     </ClCompile>
@@ -278,14 +281,14 @@
     <ClCompile Include="Src\Application\Scene\TitleScene\TitleScene.cpp">
       <Filter>Src\Application\Scene\TitleScene</Filter>
     </ClCompile>
-    <ClCompile Include="Src\Application\Scene\GameScene\GameScene.cpp">
-      <Filter>Src\Application\Scene\GameScene</Filter>
-    </ClCompile>
     <ClCompile Include="Src\Application\Scene\ResultScene\ResultScene.cpp">
       <Filter>Src\Application\Scene\ResultScene</Filter>
     </ClCompile>
-    <ClCompile Include="Src\Application\System\Mouse.cpp">
-      <Filter>Src\Application\System</Filter>
+    <ClCompile Include="Src\Application\Scene\GameScene\GameScene.cpp">
+      <Filter>Src\Application\Scene\GameScene</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\Application\Scene\GameScene\System\Hit.cpp">
+      <Filter>Src\Application\Scene\GameScene\System</Filter>
     </ClCompile>
     <ClCompile Include="Src\Application\Scene\GameScene\Object\BaseObject.cpp">
       <Filter>Src\Application\Scene\GameScene\Object</Filter>
@@ -295,9 +298,6 @@
     </ClCompile>
     <ClCompile Include="Src\Application\Scene\GameScene\Object\Enemy\Enemy.cpp">
       <Filter>Src\Application\Scene\GameScene\Object\Enemy</Filter>
-    </ClCompile>
-    <ClCompile Include="Src\Application\Scene\GameScene\System\Hit.cpp">
-      <Filter>Src\Application\Scene\GameScene\System</Filter>
     </ClCompile>
     <ClCompile Include="Src\Application\Scene\GameScene\Object\Bullet\Bullet.cpp">
       <Filter>Src\Application\Scene\GameScene\Object\Bullet</Filter>

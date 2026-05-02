@@ -1,17 +1,33 @@
 #include "Player.h"
+#include"../Bullet/Bullet.h"
+#include"../../GameScene.h"
+
 #include"../../../../System/Mouse.h"
 
 void Player::Init()
 {
 	m_Tex.Load("Texture/player.png");
+
 	m_Pos = { 0,0 };
 	m_AliveFlg = true;
+	m_Radius = 32.0f;
+
+	m_ObjType = ObjectType::Player;
 }
 
 void Player::Update()
 {
 	PlayerMove();
 	PlayerRotation();
+
+	if (GetAsyncKeyState(VK_LBUTTON) & 0x8000)
+	{
+		std::shared_ptr<Bullet>bullet;
+		bullet = std::make_shared<Bullet>();
+		bullet->Init();
+		bullet->Shot(this);
+		m_Owner->AddObject(bullet);
+	}
 
 	m_TransMat = Math::Matrix::CreateTranslation(m_Pos.x, m_Pos.y, 0);
 	m_RotateMat = Math::Matrix::CreateRotationZ(m_Angle - DirectX::XM_PIDIV2);
@@ -22,6 +38,11 @@ void Player::Draw()
 {
 	SHADER.m_spriteShader.SetMatrix(m_Mat);
 	SHADER.m_spriteShader.DrawTex(&m_Tex, Math::Rectangle(0, 0, 64, 64), 1.0f);
+}
+
+void Player::OnHit()
+{
+
 }
 
 void Player::PlayerMove()

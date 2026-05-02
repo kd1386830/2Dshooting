@@ -9,89 +9,42 @@ void Bullet::Init()
 {
 	m_Tex.Load("Texture/bullet.png");
 
-	for (int i = 0;i < BulletNum;i++)
-	{
-		m_AliveFlg[i] = false;
-	}
+	m_AliveFlg = true;
+	m_Radius = 8.0f;
+
+	m_ObjType = ObjectType::Bullet;
 
 }
 
 void Bullet::Update()
 {
-	ShotWait += 1;
-	if (GetAsyncKeyState(VK_LBUTTON) & 0x8000)
-	{
-		if (ShotWait >= 10)
-		{
-			Shot();
-		}
-	}
 
-	for (int i = 0;i < BulletNum;i++)
-	{
-		if (m_AliveFlg[i])
-		{
-			m_Pos[i] += m_Move[i];
+	m_Pos += m_Move;
 
-
-			if (m_OwnerScene)
-			{
-				for (auto& obj : m_OwnerScene->GetObjList())
-				{
-					Enemy* enemy = dynamic_cast<Enemy*>(obj.get());
-					if (enemy)
-					{
-						if (enemy->GetAliveFlg())
-						{
-							if (Hit::Instance().ObjectHit(m_Pos[i], enemy->GetPos(), 8, 32))
-							{
-								m_AliveFlg[i] = false;
-								enemy->SetAliveFlg(false);
-							}
-						}
-					}
-				}
-			}
-		}
-
-
-
-		m_Mat[i] = Math::Matrix::CreateTranslation(m_Pos[i].x, m_Pos[i].y, 0);
-	}
+	m_Mat = Math::Matrix::CreateTranslation(m_Pos.x, m_Pos.y, 0);
 }
 
 void Bullet::Draw()
 {
-	for (int i = 0;i < BulletNum;i++)
-	{
-		if (m_AliveFlg[i])
-		{
-			SHADER.m_spriteShader.SetMatrix(m_Mat[i]);
-			SHADER.m_spriteShader.DrawTex(&m_Tex, Math::Rectangle(0, 0, 16, 16), 1.0f);
-		}
-	}
+	SHADER.m_spriteShader.SetMatrix(m_Mat);
+	SHADER.m_spriteShader.DrawTex(&m_Tex, Math::Rectangle(0, 0, 16, 16), 1.0f);
 }
 
-void Bullet::Shot()
+void Bullet::OnHit()
 {
-	for (int i = 0;i < BulletNum;i++)
-	{
-		if (!m_AliveFlg[i])
-		{
+	m_AliveFlg = false;
+}
 
-			m_Pos[i] = m_player->GetPlayerPos();
+void Bullet::Shot(Player* player)
+{
+	m_Pos = player->GetPos();
 
-			m_Move[i].x = cos(m_player->GetAngle()) * m_BulletSpd;
-			m_Move[i].y = sin(m_player->GetAngle()) * m_BulletSpd;
+	m_Move.x = cos(player->GetAngle()) * m_BulletSpd;
+	m_Move.y = sin(player->GetAngle()) * m_BulletSpd;
 
-			m_AliveFlg[i] = true;
-			ShotWait = 0;
+	m_AliveFlg = true;
 
-			m_Mat[i] = Math::Matrix::CreateTranslation(m_Pos[i].x, m_Pos[i].y, 0);
-			break;
-
-		}
-	}
+	m_Mat = Math::Matrix::CreateTranslation(m_Pos.x, m_Pos.y, 0);
 }
 
 void Bullet::Release()

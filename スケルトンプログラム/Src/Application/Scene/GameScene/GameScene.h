@@ -16,6 +16,11 @@ public:
 
 	std::vector<std::shared_ptr<BaseObject>> GetObjList() { return m_objList; }
 
+	void AddObject(std::shared_ptr<BaseObject> obj)
+	{
+		m_objList.push_back(obj);
+	}
+
 private:
 
 	void Release()		override;

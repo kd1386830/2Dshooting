@@ -1,6 +1,8 @@
 #pragma once
 #include"../BaseObject.h"
 
+class GameScene;
+
 class Player :public BaseObject
 {
 public:
@@ -12,15 +14,20 @@ public:
 	void Update()override;
 	void Draw()override;
 
+	void OnHit()override;
+
 	void PlayerMove();		//移動処理
 	void PlayerRotation();	//回転処理
 
-	Math::Vector2 GetPlayerPos() { return m_Pos; }
 	float GetAngle() { return m_Angle; }
+
+	void SetOwner(GameScene* owner) { m_Owner = owner; }
 
 private:
 
 	void Release()override;
+
+	GameScene* m_Owner = nullptr;
 
 	Math::Matrix m_TransMat;	//移動行列
 	Math::Matrix m_RotateMat;	//回転行列

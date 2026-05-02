@@ -1,18 +1,27 @@
 #include "Hit.h"
+#include"../GameScene.h"
+#include"../Object/BaseObject.h"
 
-bool Hit::ObjectHit(Math::Vector2 pos1, Math::Vector2 pos2, float h1, float h2)
+bool Hit::EnemyToHit(Math::Vector2 pos, float radius)
 {
-	float a = pos1.x - pos2.x;
-	float b = pos1.y - pos2.y;
-
-	float c = sqrt(a * a + b * b);
-
-	if (c < h1 + h2)
+	for (auto& obj : m_Owner->GetObjList())
 	{
-		return true;
-	}
-	else
-	{
-		return false;
+		if (obj->GetObjType() == BaseObject::ObjectType::Enemy)
+		{
+			float a = pos.x - obj->GetPos().x;
+			float b = pos.y - obj->GetPos().y;
+
+			float c = sqrt(a * a + b * b);
+
+			if (c < radius + obj->GetRadius())
+			{
+				obj->OnHit();
+				return true;
+			}
+			else
+			{
+				return false;
+			}
+		}
 	}
 }

@@ -1,32 +1,37 @@
 #include "Enemy.h"
 #include"../Player/Player.h"
 
+#include"../../GameScene.h"
+
 void Enemy::Init()
 {
 	m_Tex.Load("Texture/enemy.png");
 
 	EnemySpawn();
-	
+
 	m_AliveFlg = true;
+	m_Radius = 32.0f;
+
+	m_ObjType = ObjectType::Enemy;
 }
 
 void Enemy::Update()
 {
-	if (m_AliveFlg)
-	{
-		ChasePlayer();
-	}
+	ChasePlayer();
+
 
 	m_Mat = Math::Matrix::CreateTranslation(m_Pos.x, m_Pos.y, 0);
 }
 
 void Enemy::Draw()
 {
-	if (m_AliveFlg)
-	{
-		SHADER.m_spriteShader.SetMatrix(m_Mat);
-		SHADER.m_spriteShader.DrawTex(&m_Tex, Math::Rectangle(0, 0, 64, 64), 1.0f);
-	}
+	SHADER.m_spriteShader.SetMatrix(m_Mat);
+	SHADER.m_spriteShader.DrawTex(&m_Tex, Math::Rectangle(0, 0, 64, 64), 1.0f);
+}
+
+void Enemy::OnHit()
+{
+	m_AliveFlg = false;
 }
 
 void Enemy::EnemySpawn()
@@ -55,19 +60,23 @@ void Enemy::EnemySpawn()
 
 void Enemy::ChasePlayer()
 {
-	if (!m_player) return;
-
-	Math::Vector2 playerPos = m_player->GetPlayerPos();
-
-	Math::Vector2 dir = playerPos - m_Pos;
-
-	if (dir.Length() > 0)
+	for (auto& obj : m_Owner->GetObjList())
 	{
-		dir.Normalize();
-	}
+		if (obj->GetObjType() == ObjectType::Player)
+		{
+			Math::Vector2 playerPos = obj->GetPos();
 
-	m_EnemyVec = m_EnemyVec * 0.9f + dir * m_EnemySpd * 0.1f;
-	m_Pos += m_EnemyVec;
+			Math::Vector2 dir = playerPos - m_Pos;
+
+			if (dir.Length() > 0)
+			{
+				dir.Normalize();
+			}
+
+			m_EnemyVec = m_EnemyVec * 0.9f + dir * m_EnemySpd * 0.1f;
+			m_Pos += m_EnemyVec;
+		}
+	}
 }
 
 void Enemy::Release()
