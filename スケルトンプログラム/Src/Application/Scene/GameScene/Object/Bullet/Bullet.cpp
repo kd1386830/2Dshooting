@@ -1,5 +1,5 @@
 #include "Bullet.h"
-#include"Player.h"
+#include"../Player/Player.h"
 #include"../Enemy/Enemy.h"
 
 #include"../../System/Hit.h"
@@ -21,7 +21,7 @@ void Bullet::Update()
 	ShotWait += 1;
 	if (GetAsyncKeyState(VK_LBUTTON) & 0x8000)
 	{
-		if (ShotWait >= 15)
+		if (ShotWait >= 10)
 		{
 			Shot();
 		}
@@ -29,21 +29,19 @@ void Bullet::Update()
 
 	for (int i = 0;i < BulletNum;i++)
 	{
-		if(m_AliveFlg[i])
+		if (m_AliveFlg[i])
 		{
 			m_Pos[i] += m_Move[i];
-		}
-		
-		if (m_OwnerScene)
-		{
-			for (auto& obj : m_OwnerScene->GetObjList())
+
+
+			if (m_OwnerScene)
 			{
-				Enemy* enemy = dynamic_cast<Enemy*>(obj.get());
-				if (enemy)
+				for (auto& obj : m_OwnerScene->GetObjList())
 				{
-					if (enemy->GetAliveFlg())
+					Enemy* enemy = dynamic_cast<Enemy*>(obj.get());
+					if (enemy)
 					{
-						if (m_AliveFlg[i])
+						if (enemy->GetAliveFlg())
 						{
 							if (Hit::Instance().ObjectHit(m_Pos[i], enemy->GetPos(), 8, 32))
 							{
@@ -56,7 +54,7 @@ void Bullet::Update()
 			}
 		}
 
-		
+
 
 		m_Mat[i] = Math::Matrix::CreateTranslation(m_Pos[i].x, m_Pos[i].y, 0);
 	}

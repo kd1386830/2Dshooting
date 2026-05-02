@@ -164,8 +164,8 @@
     <ClInclude Include="Src\Application\Scene\BaseScene\BaseScene.h" />
     <ClInclude Include="Src\Application\Scene\GameScene\GameScene.h" />
     <ClInclude Include="Src\Application\Scene\GameScene\Object\BaseObject.h" />
+    <ClInclude Include="Src\Application\Scene\GameScene\Object\Bullet\Bullet.h" />
     <ClInclude Include="Src\Application\Scene\GameScene\Object\Enemy\Enemy.h" />
-    <ClInclude Include="Src\Application\Scene\GameScene\Object\Player\Bullet.h" />
     <ClInclude Include="Src\Application\Scene\GameScene\Object\Player\Player.h" />
     <ClInclude Include="Src\Application\Scene\GameScene\System\Hit.h" />
     <ClInclude Include="Src\Application\Scene\ResultScene\ResultScene.h" />
@@ -200,8 +200,8 @@
     <ClCompile Include="Src\Application\Scene\BaseScene\BaseScene.cpp" />
     <ClCompile Include="Src\Application\Scene\GameScene\GameScene.cpp" />
     <ClCompile Include="Src\Application\Scene\GameScene\Object\BaseObject.cpp" />
+    <ClCompile Include="Src\Application\Scene\GameScene\Object\Bullet\Bullet.cpp" />
     <ClCompile Include="Src\Application\Scene\GameScene\Object\Enemy\Enemy.cpp" />
-    <ClCompile Include="Src\Application\Scene\GameScene\Object\Player\Bullet.cpp" />
     <ClCompile Include="Src\Application\Scene\GameScene\Object\Player\Player.cpp" />
     <ClCompile Include="Src\Application\Scene\GameScene\System\Hit.cpp" />
     <ClCompile Include="Src\Application\Scene\ResultScene\ResultScene.cpp" />

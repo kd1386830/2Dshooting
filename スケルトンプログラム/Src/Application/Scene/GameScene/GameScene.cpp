@@ -3,7 +3,7 @@
 
 #include"Object/Player/Player.h"
 #include"Object/Enemy/Enemy.h"
-#include"Object/Player/Bullet.h"
+#include"Object/Bullet/Bullet.h"
 
 void GameScene::Init()
 {
