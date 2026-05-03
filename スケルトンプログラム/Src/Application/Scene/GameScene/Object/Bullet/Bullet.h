@@ -24,8 +24,12 @@ private:
 
 	void Release()override;
 
-	Math::Vector2 m_Move;
-	float m_BulletSpd = 7.0f;
-	Math::Vector2 m_BulletVec;
+	const int SCR_L = -640;	//左端
+	const int SCR_R = 640;	//右端
+	const int SCR_T = 360;	//上端
+	const int SCR_B = -360;	//下端
+
+	Math::Vector2 m_Move;		//弾の移動量
+	float m_BulletSpd = 7.0f;	//弾のスピード
 
 };

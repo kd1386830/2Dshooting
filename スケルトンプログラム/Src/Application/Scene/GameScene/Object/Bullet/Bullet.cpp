@@ -18,8 +18,17 @@ void Bullet::Init()
 
 void Bullet::Update()
 {
-
 	m_Pos += m_Move;
+
+	if (m_Pos.x<SCR_L - m_Radius || m_Pos.x > SCR_R + m_Radius || m_Pos.y < SCR_B - m_Radius || m_Pos.y > SCR_T + m_Radius)
+	{
+		m_AliveFlg = false;
+	}
+
+	if (Hit::Instance().EnemyToHit(m_Pos, m_Radius))
+	{
+		OnHit();
+	}
 
 	m_Mat = Math::Matrix::CreateTranslation(m_Pos.x, m_Pos.y, 0);
 }

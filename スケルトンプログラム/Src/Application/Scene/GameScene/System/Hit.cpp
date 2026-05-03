@@ -4,6 +4,8 @@
 
 bool Hit::EnemyToHit(Math::Vector2 pos, float radius)
 {
+	bool Hit = false;
+
 	for (auto& obj : m_Owner->GetObjList())
 	{
 		if (obj->GetObjType() == BaseObject::ObjectType::Enemy)
@@ -16,12 +18,10 @@ bool Hit::EnemyToHit(Math::Vector2 pos, float radius)
 			if (c < radius + obj->GetRadius())
 			{
 				obj->OnHit();
-				return true;
-			}
-			else
-			{
-				return false;
+				Hit = true;
 			}
 		}
 	}
+
+	return Hit;
 }

@@ -1,8 +1,9 @@
 #include "Player.h"
 #include"../Bullet/Bullet.h"
-#include"../../GameScene.h"
 
+#include"../../GameScene.h"
 #include"../../../../System/Mouse.h"
+#include"../../System/Hit.h"
 
 void Player::Init()
 {
@@ -20,13 +21,26 @@ void Player::Update()
 	PlayerMove();
 	PlayerRotation();
 
-	if (GetAsyncKeyState(VK_LBUTTON) & 0x8000)
+	m_ShotWait++;
+
+	if (m_ShotWait > 7)
 	{
-		std::shared_ptr<Bullet>bullet;
-		bullet = std::make_shared<Bullet>();
-		bullet->Init();
-		bullet->Shot(this);
-		m_Owner->AddObject(bullet);
+		if (GetAsyncKeyState(VK_LBUTTON) & 0x8000)
+		{
+			std::shared_ptr<Bullet>bullet;
+			bullet = std::make_shared<Bullet>();
+			bullet->Init();
+			bullet->Shot(this);
+			m_Owner->AddObject(bullet);
+
+			m_ShotWait = 0;
+		}
+	}
+	
+
+	if (Hit::Instance().EnemyToHit(m_Pos, m_Radius))
+	{
+		OnHit();
 	}
 
 	m_TransMat = Math::Matrix::CreateTranslation(m_Pos.x, m_Pos.y, 0);
@@ -42,7 +56,7 @@ void Player::Draw()
 
 void Player::OnHit()
 {
-
+	m_AliveFlg = false;
 }
 
 void Player::PlayerMove()

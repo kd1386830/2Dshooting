@@ -33,7 +33,4 @@ private:
 	float m_EnemySpd = 3.0f;	//敵の移動スピード
 	Math::Vector2 m_EnemyVec;	//移動速度ベクトル
 
-	Math::Vector2 m_TargetPos;	//追尾対象の座標
-
-
 };

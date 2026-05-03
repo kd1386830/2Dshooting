@@ -37,4 +37,6 @@ private:
 
 	float m_Angle;				//角度
 
+	int m_ShotWait = 0;			//弾の発射間隔
+
 };

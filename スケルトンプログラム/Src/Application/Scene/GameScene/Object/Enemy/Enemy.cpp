@@ -74,9 +74,10 @@ void Enemy::ChasePlayer()
 			}
 
 			m_EnemyVec = m_EnemyVec * 0.9f + dir * m_EnemySpd * 0.1f;
-			m_Pos += m_EnemyVec;
 		}
 	}
+
+	m_Pos += m_EnemyVec;
 }
 
 void Enemy::Release()
