@@ -1,4 +1,5 @@
 #include "SceneManager.h"
+#include"BackGround.h"
 
 #include"TitleScene/TitleScene.h"
 #include"GameScene/GameScene.h"
@@ -7,6 +8,7 @@
 void SceneManager::Init()
 {
 	ChangeScene(m_currentSceneType);
+	BackGround::Instance().Init();
 }
 
 void SceneManager::Update()
@@ -16,15 +18,18 @@ void SceneManager::Update()
 		ChangeScene(m_nextSceneType);
 	}
 	m_currentScene->Update();
+	BackGround::Instance().Update();
 }
 
 void SceneManager::Draw()
 {
+	BackGround::Instance().Draw();
 	m_currentScene->Draw();
 }
 
 void SceneManager::Release()
 {
+	BackGround::Instance().Release();
 }
 
 void SceneManager::ChangeScene(SceneType _sceneType)
