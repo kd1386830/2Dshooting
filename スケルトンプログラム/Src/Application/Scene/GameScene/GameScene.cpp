@@ -58,7 +58,7 @@ void GameScene::Update()
 		m_objList[i]->Update();
 	}
 
-
+	EnemySpawn();
 
 
 	if (GetAsyncKeyState('R') & 0x8000)
@@ -81,6 +81,45 @@ void GameScene::Draw()
 
 
 	//SHADER.m_spriteShader.DrawString(0, 0, "game", { 1,1,1,1 });
+}
+
+void GameScene::EnemySpawn()
+{
+	// 通常湧き
+	m_SpawnTimer ++;
+
+	if (m_SpawnTimer >= m_SpawnInterval)
+	{
+		int count = rand() % 5 + 4; // 1〜2体
+
+		for (int i = 0; i < count; i++)
+		{
+			std::shared_ptr<Enemy> enemy;
+			enemy = std::make_shared<Enemy>();
+			enemy->Init();
+			enemy->SetOwner(this);
+			m_objList.push_back(enemy);
+		}
+
+		m_SpawnTimer = 0.0f;
+	}
+
+	// ウェーブ湧き
+	m_WaveTimer ++;
+
+	if (m_WaveTimer >= m_WaveInterval)
+	{
+		for (int i = 0; i < m_WaveCount; i++)
+		{
+			std::shared_ptr<Enemy> enemy;
+			enemy = std::make_shared<Enemy>();
+			enemy->Init();
+			enemy->SetOwner(this);
+			m_objList.push_back(enemy);
+		}
+
+		m_WaveTimer = 0.0f;
+	}
 }
 
 void GameScene::Release()

@@ -23,7 +23,7 @@ void Player::Update()
 
 	m_ShotWait++;
 
-	if (m_ShotWait > 7)
+	if (m_ShotWait > 15)
 	{
 		if (GetAsyncKeyState(VK_LBUTTON) & 0x8000)
 		{

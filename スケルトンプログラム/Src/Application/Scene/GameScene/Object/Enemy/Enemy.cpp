@@ -8,6 +8,7 @@ void Enemy::Init()
 	m_Tex.Load("Texture/Object/enemy.png");
 
 	EnemySpawn();
+	m_Mat = Math::Matrix::CreateTranslation(m_Pos.x, m_Pos.y, 0);
 
 	m_AliveFlg = true;
 	m_Radius = 32.0f;
