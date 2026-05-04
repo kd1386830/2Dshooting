@@ -26,7 +26,7 @@ void Scene::Release()
 
 void Scene::ImGuiUpdate()
 {
-	//return;
+	return;
 
 	ImGui::SetNextWindowPos(ImVec2(20, 20), ImGuiSetCond_Once);
 	ImGui::SetNextWindowSize(ImVec2(200, 100), ImGuiSetCond_Once);
@@ -34,7 +34,7 @@ void Scene::ImGuiUpdate()
 	// デバッグウィンドウ
 	if (ImGui::Begin("Debug Window"))
 	{
-		ImGui::Text("生存時間 : %f", Time::Instance().GetAliveTime() / 60);
+		
 	}
 	ImGui::End();
 }

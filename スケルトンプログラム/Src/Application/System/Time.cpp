@@ -8,7 +8,7 @@ void Time::Init()
     m_ColonTex.Load("Texture/UI/Colon.png");
 
     m_CountDownUI.m_Pos = { 0,0 };
-    m_CountDownUI.m_Scale = 15;
+    m_CountDownUI.m_Scale = 20;
 
     m_AliveMinTenUI.m_Pos = { -260,0 };
     m_AliveMinTenUI.m_Scale = 20;
