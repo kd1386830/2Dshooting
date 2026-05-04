@@ -7,7 +7,7 @@
 
 void Bullet::Init()
 {
-	m_Tex.Load("Texture/bullet.png");
+	m_Tex.Load("Texture/Object/bullet.png");
 
 	m_AliveFlg = true;
 	m_Radius = 8.0f;

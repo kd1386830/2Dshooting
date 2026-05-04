@@ -5,7 +5,7 @@
 
 void Enemy::Init()
 {
-	m_Tex.Load("Texture/enemy.png");
+	m_Tex.Load("Texture/Object/enemy.png");
 
 	EnemySpawn();
 

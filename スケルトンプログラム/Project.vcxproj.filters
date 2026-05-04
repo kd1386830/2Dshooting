@@ -204,6 +204,9 @@
     <ClInclude Include="Src\Application\Scene\GameScene\Object\Bullet\Bullet.h">
       <Filter>Src\Application\Scene\GameScene\Object\Bullet</Filter>
     </ClInclude>
+    <ClInclude Include="Src\Application\System\Time.h">
+      <Filter>Src\Application\System</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Pch.cpp">
@@ -301,6 +304,9 @@
     </ClCompile>
     <ClCompile Include="Src\Application\Scene\GameScene\Object\Bullet\Bullet.cpp">
       <Filter>Src\Application\Scene\GameScene\Object\Bullet</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\Application\System\Time.cpp">
+      <Filter>Src\Application\System</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

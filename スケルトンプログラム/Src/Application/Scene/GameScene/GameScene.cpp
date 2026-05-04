@@ -1,6 +1,7 @@
 #include "GameScene.h"
 #include"../SceneManager.h"
 #include"System/Hit.h"
+#include"../../System/Time.h"
 
 #include"Object/Player/Player.h"
 #include"Object/Enemy/Enemy.h"
@@ -9,6 +10,10 @@
 void GameScene::Init()
 {
 	Hit::Instance().SetOwner(this);
+
+	Time::Instance().SetOwner(this);
+	Time::Instance().Init();
+	Time::Instance().StaartCountDown(3.0f);
 
 	//プレイヤー
 	std::shared_ptr<Player> player;
@@ -44,12 +49,17 @@ void GameScene::Update()
 		}
 	}
 
+	Time::Instance().Update();
 
+	if (!Time::Instance().GetStartFlg())return;
 
 	for (int i = 0; i < m_objList.size(); ++i)
 	{
 		m_objList[i]->Update();
 	}
+
+
+
 
 	if (GetAsyncKeyState('R') & 0x8000)
 	{
@@ -59,14 +69,18 @@ void GameScene::Update()
 
 void GameScene::Draw()
 {
+
+	Time::Instance().Draw();
+
+	if (!Time::Instance().GetStartFlg())return;
+
 	for (int i = 0; i < m_objList.size(); ++i)
 	{
 		m_objList[i]->Draw();
 	}
 
 
-
-	SHADER.m_spriteShader.DrawString(0, 0, "game", { 1,1,1,1 });
+	//SHADER.m_spriteShader.DrawString(0, 0, "game", { 1,1,1,1 });
 }
 
 void GameScene::Release()

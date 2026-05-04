@@ -7,7 +7,7 @@
 
 void Player::Init()
 {
-	m_Tex.Load("Texture/player.png");
+	m_Tex.Load("Texture/Object/player.png");
 
 	m_Pos = { 0,0 };
 	m_AliveFlg = true;
