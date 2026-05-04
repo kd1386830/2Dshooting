@@ -30,6 +30,6 @@ private:
 	const int SCR_B = -360;	//下端
 
 	Math::Vector2 m_Move;		//弾の移動量
-	float m_BulletSpd = 7.0f;	//弾のスピード
+	float m_BulletSpd = 10.0f;	//弾のスピード
 
 };

@@ -90,7 +90,7 @@ void GameScene::EnemySpawn()
 
 	if (m_SpawnTimer >= m_SpawnInterval)
 	{
-		int count = rand() % 5 + 4; // 1〜2体
+		int count = rand() % 4 + 3; // 3〜4体
 
 		for (int i = 0; i < count; i++)
 		{
