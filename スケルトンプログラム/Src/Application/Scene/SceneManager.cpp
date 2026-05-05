@@ -1,5 +1,6 @@
 #include "SceneManager.h"
 #include"BackGround.h"
+#include"../System/Mouse.h"
 
 #include"TitleScene/TitleScene.h"
 #include"GameScene/GameScene.h"
@@ -7,28 +8,37 @@
 
 void SceneManager::Init()
 {
+	Mouse::Instance().Init();
+
 	ChangeScene(m_currentSceneType);
 	BackGround::Instance().Init();
 }
 
 void SceneManager::Update()
 {
+
 	if (m_currentSceneType != m_nextSceneType)
 	{
 		ChangeScene(m_nextSceneType);
 	}
+
 	m_currentScene->Update();
+	Mouse::Instance().Update();
 	BackGround::Instance().Update();
 }
 
 void SceneManager::Draw()
 {
 	BackGround::Instance().Draw();
+
 	m_currentScene->Draw();
+	Mouse::Instance().Draw();
 }
 
 void SceneManager::Release()
 {
+	Mouse::Instance().Release();
+
 	BackGround::Instance().Release();
 }
 

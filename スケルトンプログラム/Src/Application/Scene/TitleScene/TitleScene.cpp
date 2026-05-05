@@ -1,23 +1,28 @@
 #include "TitleScene.h"
-#include"../SceneManager.h"
+#include"UI/Title.h"
+#include"UI/StartButton.h"
 
 void TitleScene::Init()
 {
+	Title::Instance().Init();
+	StartButton::Instance().Init();
 }
 
 void TitleScene::Update()
 {
-	if (GetAsyncKeyState(VK_SPACE) & 0x8000)
-	{
-		SceneManager::Instance().SetNextScene(SceneManager::SceneType::Game);
-	}
+	Title::Instance().Update();
+	StartButton::Instance().Update();
+	
 }
 
 void TitleScene::Draw()
 {
-	SHADER.m_spriteShader.DrawString(0, 0, "title", { 1,1,1,1 });
+	Title::Instance().Draw();
+	StartButton::Instance().Draw();
 }
 
 void TitleScene::Release()
 {
+	Title::Instance().Release();
+	StartButton::Instance().Release();
 }

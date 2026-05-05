@@ -79,8 +79,6 @@ void GameScene::Draw()
 		m_objList[i]->Draw();
 	}
 
-
-	//SHADER.m_spriteShader.DrawString(0, 0, "game", { 1,1,1,1 });
 }
 
 void GameScene::EnemySpawn()
@@ -90,7 +88,7 @@ void GameScene::EnemySpawn()
 
 	if (m_SpawnTimer >= m_SpawnInterval)
 	{
-		int count = rand() % 4 + 3; // 3〜4体
+		int count = rand() % 3 + 2; // 2〜3体
 
 		for (int i = 0; i < count; i++)
 		{

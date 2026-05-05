@@ -36,6 +36,6 @@ private:
 	int m_WaveTimer = 0.0f;
 	int m_WaveInterval = 30.0f * 60.0f; //30秒ごと
 
-	int m_WaveCount = 10; //一度に出す数
+	int m_WaveCount = 5; //一度に出す数
 
 };

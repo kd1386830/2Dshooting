@@ -76,6 +76,9 @@
     <Filter Include="Src\Application\Scene\GameScene\Object\Bullet">
       <UniqueIdentifier>{626455df-989f-4294-a30f-bb7186d268ec}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Src\Application\Scene\TitleScene\UI">
+      <UniqueIdentifier>{ba0bb845-c0b2-46a6-a541-61ddb86824ae}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\Pch.h">
@@ -210,6 +213,12 @@
     <ClInclude Include="Src\Application\Scene\BackGround.h">
       <Filter>Src\Application\Scene</Filter>
     </ClInclude>
+    <ClInclude Include="Src\Application\Scene\TitleScene\UI\Title.h">
+      <Filter>Src\Application\Scene\TitleScene\UI</Filter>
+    </ClInclude>
+    <ClInclude Include="Src\Application\Scene\TitleScene\UI\StartButton.h">
+      <Filter>Src\Application\Scene\TitleScene\UI</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Pch.cpp">
@@ -313,6 +322,12 @@
     </ClCompile>
     <ClCompile Include="Src\Application\Scene\BackGround.cpp">
       <Filter>Src\Application\Scene</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\Application\Scene\TitleScene\UI\Title.cpp">
+      <Filter>Src\Application\Scene\TitleScene\UI</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\Application\Scene\TitleScene\UI\StartButton.cpp">
+      <Filter>Src\Application\Scene\TitleScene\UI</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

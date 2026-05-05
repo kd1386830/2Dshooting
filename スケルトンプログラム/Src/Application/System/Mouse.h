@@ -9,6 +9,7 @@ public:
 	void Init();
 	void Update();
 	void Draw();
+	void Release();
 
 	POINT GetMousePos();
 
@@ -20,6 +21,9 @@ private:
 
 	//マウス操作
 	POINT m_Mouse;
+
+	KdTexture m_Tex;
+	Math::Matrix m_Mat;
 
 private:
 

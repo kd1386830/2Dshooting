@@ -3,16 +3,29 @@
 
 void Mouse::Init()
 {
+	m_Tex.Load("Texture/UI/Sight.png");
+
 	m_Mouse = GetMousePos();
 }
 
 void Mouse::Update()
 {
+	ShowCursor(FALSE);//マウスカーソル非表示
+
 	m_Mouse = GetMousePos();
+
+	m_Mat = Math::Matrix::CreateTranslation(m_Mouse.x, m_Mouse.y, 0);
 }
 
 void Mouse::Draw()
 {
+	SHADER.m_spriteShader.SetMatrix(m_Mat);
+	SHADER.m_spriteShader.DrawTex(&m_Tex, Math::Rectangle(0, 0, 36, 36), 1.0f);
+}
+
+void Mouse::Release()
+{
+	m_Tex.Release();
 }
 
 POINT Mouse::GetMousePos()

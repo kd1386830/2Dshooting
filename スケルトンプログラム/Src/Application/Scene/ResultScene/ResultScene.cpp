@@ -15,7 +15,7 @@ void ResultScene::Update()
 
 void ResultScene::Draw()
 {
-	SHADER.m_spriteShader.DrawString(0, 0, "result", { 1,1,1,1 });
+
 }
 
 void ResultScene::Release()
