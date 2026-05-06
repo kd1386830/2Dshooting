@@ -26,6 +26,7 @@ public:
 
 	float GetAliveTime() { return m_CountUp; }
 	bool GetStartFlg() { return m_GameStartFlg; }
+	bool GetOverFlg() { return m_GameOverFlg; }
 
 	void SetOwner(GameScene* owner) { m_Owner = owner; }
 
@@ -49,6 +50,7 @@ private:
 	int m_CountUp = 0.0f;			//カウントアップタイマー
 
 	bool m_GameStartFlg = false;	//ゲーム開始フラグ
+	bool m_GameOverFlg = false;		//ゲームオーバーフラグ
 
 	int m_TotalSec = 0;				//全体の秒数
 	int m_Minutes = 0;				//分

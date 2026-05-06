@@ -19,10 +19,13 @@ public:
 	void OnHit()override;
 
 	void Shot(Player* player);
+	void SetOwner(GameScene* owner) { m_Owner = owner; }
 
 private:
 
 	void Release()override;
+
+	GameScene* m_Owner = nullptr;
 
 	const int SCR_L = -640;	//左端
 	const int SCR_R = 640;	//右端

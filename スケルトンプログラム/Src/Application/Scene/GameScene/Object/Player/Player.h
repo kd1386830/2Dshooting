@@ -30,12 +30,14 @@ private:
 	GameScene* m_Owner = nullptr;
 
 	Math::Matrix m_TransMat;	//移動行列
+	Math::Matrix m_ScaleMat;	//拡縮行列
 	Math::Matrix m_RotateMat;	//回転行列
 
 	Math::Vector2 m_MoveVec;	//移動速度ベクトル
 	float m_MoveSpd = 5.0f;		//移動スピード
 
 	float m_Angle;				//角度
+	float m_Scale;				//拡大率
 
 	int m_ShotWait = 0;			//弾の発射間隔
 

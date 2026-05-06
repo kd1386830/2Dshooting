@@ -25,9 +25,19 @@ void Bullet::Update()
 		m_AliveFlg = false;
 	}
 
-	if (Hit::Instance().EnemyToHit(m_Pos, m_Radius))
+	for (auto& obj : m_Owner->GetObjList())
 	{
-		OnHit();
+		if (obj->GetObjType() == ObjectType::Enemy)
+		{
+			if (Hit::Instance().ObjectHit(this, obj.get()))
+			{
+				if(obj->GetAliveFlg())
+				{
+					OnHit();
+					obj->OnHit();
+				}
+			}
+		}
 	}
 
 	m_Mat = Math::Matrix::CreateTranslation(m_Pos.x, m_Pos.y, 0);

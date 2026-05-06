@@ -12,6 +12,7 @@ void Player::Init()
 	m_Pos = { 0,0 };
 	m_AliveFlg = true;
 	m_Radius = 32.0f;
+	m_Scale = 4;
 
 	m_ObjType = ObjectType::Player;
 }
@@ -30,6 +31,7 @@ void Player::Update()
 			std::shared_ptr<Bullet>bullet;
 			bullet = std::make_shared<Bullet>();
 			bullet->Init();
+			bullet->SetOwner(m_Owner);
 			bullet->Shot(this);
 			m_Owner->AddObject(bullet);
 
@@ -37,21 +39,31 @@ void Player::Update()
 		}
 	}
 	
-
-	if (Hit::Instance().EnemyToHit(m_Pos, m_Radius))
+	for (auto& obj : m_Owner->GetObjList())
 	{
-		OnHit();
+		if (obj->GetObjType() == ObjectType::Enemy)
+		{
+			if (Hit::Instance().ObjectHit(this, obj.get()))
+			{
+				if(obj->GetAliveFlg())
+				{
+					obj->OnHit();
+					OnHit();
+				}
+			}
+		}
 	}
 
 	m_TransMat = Math::Matrix::CreateTranslation(m_Pos.x, m_Pos.y, 0);
+	m_ScaleMat = Math::Matrix::CreateScale(m_Scale, m_Scale, 0);
 	m_RotateMat = Math::Matrix::CreateRotationZ(m_Angle - DirectX::XM_PIDIV2);
-	m_Mat = m_RotateMat * m_TransMat;
+	m_Mat = m_RotateMat * m_ScaleMat * m_TransMat;
 }
 
 void Player::Draw()
 {
 	SHADER.m_spriteShader.SetMatrix(m_Mat);
-	SHADER.m_spriteShader.DrawTex(&m_Tex, Math::Rectangle(0, 0, 64, 64), 1.0f);
+	SHADER.m_spriteShader.DrawTex(&m_Tex, Math::Rectangle(0, 0, 16, 16), 1.0f);
 }
 
 void Player::OnHit()

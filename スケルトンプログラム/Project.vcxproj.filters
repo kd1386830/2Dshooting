@@ -79,6 +79,9 @@
     <Filter Include="Src\Application\Scene\TitleScene\UI">
       <UniqueIdentifier>{ba0bb845-c0b2-46a6-a541-61ddb86824ae}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Src\Application\Scene\GameScene\Object\Item">
+      <UniqueIdentifier>{9d40607e-2bd7-4f1a-8240-fdaa9517c3ad}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\Pch.h">
@@ -219,6 +222,9 @@
     <ClInclude Include="Src\Application\Scene\TitleScene\UI\StartButton.h">
       <Filter>Src\Application\Scene\TitleScene\UI</Filter>
     </ClInclude>
+    <ClInclude Include="Src\Application\Scene\GameScene\Object\Item\Item.h">
+      <Filter>Src\Application\Scene\GameScene\Object\Item</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Pch.cpp">
@@ -328,6 +334,9 @@
     </ClCompile>
     <ClCompile Include="Src\Application\Scene\TitleScene\UI\StartButton.cpp">
       <Filter>Src\Application\Scene\TitleScene\UI</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\Application\Scene\GameScene\Object\Item\Item.cpp">
+      <Filter>Src\Application\Scene\GameScene\Object\Item</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

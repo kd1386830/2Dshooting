@@ -1,6 +1,6 @@
 #pragma once
 
-class GameScene;
+class BaseObject;
 
 class Hit
 {
@@ -9,13 +9,10 @@ public:
 	Hit() {}
 	~Hit() {}
 
-	bool EnemyToHit(Math::Vector2 pos, float radius);
-
-	void SetOwner(GameScene* owner) { m_Owner = owner; }
+	bool ObjectHit(BaseObject* a, BaseObject* b);
 
 private:
 
-	GameScene* m_Owner = nullptr;
 
 public:
 	static Hit& Instance()

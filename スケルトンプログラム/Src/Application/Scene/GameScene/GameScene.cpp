@@ -6,10 +6,10 @@
 #include"Object/Player/Player.h"
 #include"Object/Enemy/Enemy.h"
 #include"Object/Bullet/Bullet.h"
+#include"Object/Item/Item.h"
 
 void GameScene::Init()
 {
-	Hit::Instance().SetOwner(this);
 
 	Time::Instance().SetOwner(this);
 	Time::Instance().Init();
@@ -22,15 +22,6 @@ void GameScene::Init()
 	player->SetOwner(this);
 	m_objList.push_back(player);
 
-	//敵
-	std::shared_ptr<Enemy> enemy;
-	for (int i = 0;i < 10;i++)
-	{
-		enemy = std::make_shared<Enemy>();
-		enemy->Init();
-		enemy->SetOwner(this);
-		m_objList.push_back(enemy);
-	}
 }
 
 void GameScene::Update()
@@ -51,6 +42,7 @@ void GameScene::Update()
 
 	Time::Instance().Update();
 
+	if (Time::Instance().GetOverFlg())return;
 	if (!Time::Instance().GetStartFlg())return;
 
 	for (int i = 0; i < m_objList.size(); ++i)
@@ -58,7 +50,9 @@ void GameScene::Update()
 		m_objList[i]->Update();
 	}
 
+	
 	EnemySpawn();
+	ItemSpawn();
 
 
 	if (GetAsyncKeyState('R') & 0x8000)
@@ -82,7 +76,7 @@ void GameScene::Draw()
 }
 
 void GameScene::EnemySpawn()
-{
+{	
 	// 通常湧き
 	m_SpawnTimer ++;
 
@@ -117,6 +111,23 @@ void GameScene::EnemySpawn()
 		}
 
 		m_WaveTimer = 0.0f;
+	}
+}
+
+void GameScene::ItemSpawn()
+{
+	m_ItemTimer++;
+
+	if (m_ItemTimer >= m_ItemInterval)
+	{
+		std::shared_ptr<Item> item;
+		item = std::make_shared<Item>();
+		item->Init();
+		item->SetOwner(this);
+		m_objList.push_back(item);
+
+
+		m_ItemTimer = 0.0f;
 	}
 }
 

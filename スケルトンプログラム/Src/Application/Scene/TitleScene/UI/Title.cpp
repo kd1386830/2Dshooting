@@ -13,7 +13,7 @@ void Title::Update()
 
 void Title::Draw()
 {
-
+	//SPACE SURVIVAL
 }
 
 void Title::Release()

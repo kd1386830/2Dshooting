@@ -41,7 +41,7 @@ void Time::Update()
             }
         }
     }
-    else
+    else if(!m_GameOverFlg)
     {
         for (auto& obj : m_Owner->GetObjList())
         {
@@ -53,7 +53,7 @@ void Time::Update()
                 }
                 else
                 {
-
+                    m_GameOverFlg = true;
                 }
             }
         }
@@ -129,4 +129,5 @@ void Time::StaartCountDown(float time)
 	m_CountDown = time * 60;
 	m_CountUp = 0.0f;
 	m_GameStartFlg = false;
+	m_GameOverFlg = false;
 }

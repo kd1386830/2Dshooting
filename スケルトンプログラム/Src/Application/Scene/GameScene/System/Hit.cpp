@@ -2,26 +2,12 @@
 #include"../GameScene.h"
 #include"../Object/BaseObject.h"
 
-bool Hit::EnemyToHit(Math::Vector2 pos, float radius)
+bool Hit::ObjectHit(BaseObject* a, BaseObject* b)
 {
-	bool Hit = false;
+	Math::Vector2 d = a->GetPos() - b->GetPos();
 
-	for (auto& obj : m_Owner->GetObjList())
-	{
-		if (obj->GetObjType() == BaseObject::ObjectType::Enemy)
-		{
-			float a = pos.x - obj->GetPos().x;
-			float b = pos.y - obj->GetPos().y;
+	float distSqrt = d.LengthSquared();
+	float r = a->GetRadius() + b->GetRadius();
 
-			float c = sqrt(a * a + b * b);
-
-			if (c < radius + obj->GetRadius())
-			{
-				obj->OnHit();
-				Hit = true;
-			}
-		}
-	}
-
-	return Hit;
+	return distSqrt < r * r;
 }
