@@ -12,7 +12,11 @@ void Item::Init()
 	m_ScaleMat = Math::Matrix::CreateScale(m_Scale, m_Scale, 0);
 	m_Mat = m_ScaleMat * m_TransMat;
 
+	m_Radius = 24.0f;
+
 	m_AliveFlg = true;
+
+	m_ObjType = ObjectType::Item;
 }
 
 void Item::Update()
@@ -38,7 +42,7 @@ void Item::Release()
 
 void Item::OnHit()
 {
-
+	m_AliveFlg = false;
 }
 
 void Item::Move()

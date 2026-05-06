@@ -52,6 +52,16 @@ void Player::Update()
 				}
 			}
 		}
+		if (obj->GetObjType() == ObjectType::Item)
+		{
+			if (Hit::Instance().ObjectHit(this, obj.get()))
+			{
+				if (obj->GetAliveFlg())
+				{
+					obj->OnHit();
+				}
+			}
+		}
 	}
 
 	m_TransMat = Math::Matrix::CreateTranslation(m_Pos.x, m_Pos.y, 0);

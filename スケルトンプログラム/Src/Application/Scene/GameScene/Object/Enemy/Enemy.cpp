@@ -20,7 +20,6 @@ void Enemy::Update()
 {
 	ChasePlayer();
 
-
 	m_Mat = Math::Matrix::CreateTranslation(m_Pos.x, m_Pos.y, 0);
 }
 
