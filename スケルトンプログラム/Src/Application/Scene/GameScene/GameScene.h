@@ -40,6 +40,6 @@ private:
 	int m_WaveCount = 5; //一度に出す数
 
 	int m_ItemTimer = 0.0f;
-	int m_ItemInterval = 5.0f * 60.0f;
+	int m_ItemInterval = 10.0f * 60.0f;
 
 };

@@ -29,6 +29,8 @@ public:
 
 	void ItemTypeSet();
 
+	ItemType GetItemType() { return m_Type; }
+
 	void SetOwner(GameScene* owner) { m_Owner = owner; }
 
 private:

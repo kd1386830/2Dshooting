@@ -1,6 +1,9 @@
 #include "Time.h"
 #include"../Scene/GameScene/GameScene.h"
 #include"../Scene/GameScene/Object/BaseObject.h"
+#include"../Scene/SceneManager.h"
+
+#include"../Scene/ResultScene/Result/Score.h"
 
 void Time::Init()
 {
@@ -10,54 +13,54 @@ void Time::Init()
     m_CountDownUI.m_Pos = { 0,0 };
     m_CountDownUI.m_Scale = 20;
 
-    m_AliveMinTenUI.m_Pos = { -260,0 };
-    m_AliveMinTenUI.m_Scale = 20;
+    PosScaleSet(true);
 
-    m_AliveMinOneUI.m_Pos = { -110,0 };
-    m_AliveMinOneUI.m_Scale = 20;
-
-    m_ColonUI.m_Pos = { 0,0 };
-    m_ColonUI.m_Scale = 20;
-
-    m_AliveSecTenUI.m_Pos = { 110,0 };
-    m_AliveSecTenUI.m_Scale = 20;
-
-    m_AliveSecOneUI.m_Pos = { 260,0 };
-    m_AliveSecOneUI.m_Scale = 20;
 }
 
 void Time::Update()
 {
-    if (!m_GameStartFlg)
+    if (SceneManager::Instance().GetCurrentSceneType() == SceneManager::SceneType::Game)
     {
-        if (m_CountDown > 0)
+        if (!m_GameStartFlg)
         {
-            m_CountDown --;
+            if (m_CountDown > 0)
+            {
+                m_CountDown--;
 
-            if (m_CountDown <= 0)
-            {
-                m_CountDown = 0;
-                m_GameStartFlg = true;
+                if (m_CountDown <= 0)
+                {
+                    m_CountDown = 0;
+                    m_GameStartFlg = true;
+                }
             }
         }
-    }
-    else if(!m_GameOverFlg)
-    {
-        for (auto& obj : m_Owner->GetObjList())
+        else if (!m_GameOverFlg)
         {
-            if (obj->GetObjType() == BaseObject::ObjectType::Player)
+            for (auto& obj : m_Owner->GetObjList())
             {
-                if (obj->GetAliveFlg())
+                if (obj->GetObjType() == BaseObject::ObjectType::Player)
                 {
-                    m_CountUp++;
-                }
-                else
-                {
-                    m_GameOverFlg = true;
+                    if (obj->GetAliveFlg())
+                    {
+                        m_CountUp++;
+                    }
+                    else
+                    {
+                        m_GameOverFlg = true;
+                    }
                 }
             }
         }
+        alpha = 0.3f;
     }
+    else if (SceneManager::Instance().GetCurrentSceneType() == SceneManager::SceneType::Result)
+    {
+        alpha = 1.0f;
+
+        PosScaleSet(false);
+    }
+
+
 
     m_TotalSec = m_CountUp / 60;
     m_Minutes = m_TotalSec / 60;
@@ -104,23 +107,61 @@ void Time::Draw()
         SHADER.m_spriteShader.SetMatrix(m_CountDownUI.m_Mat);
         SHADER.m_spriteShader.DrawTex(&m_Tex, Math::Rectangle((8 * (m_CountDown / 60) + 8), 0, 8, 8), 1.0f);
     }
-    else
+    else if(!m_GameOverFlg)
     {
         //分の十の位
         SHADER.m_spriteShader.SetMatrix(m_AliveMinTenUI.m_Mat);
-        SHADER.m_spriteShader.DrawTex(&m_Tex, Math::Rectangle(8 * m_MinTens, 0, 8, 8), 0.3f);
+        SHADER.m_spriteShader.DrawTex(&m_Tex, Math::Rectangle(8 * m_MinTens, 0, 8, 8), alpha);
         //分の一の位
         SHADER.m_spriteShader.SetMatrix(m_AliveMinOneUI.m_Mat);
-        SHADER.m_spriteShader.DrawTex(&m_Tex, Math::Rectangle(8 * m_MinOnes, 0, 8, 8), 0.3f);
+        SHADER.m_spriteShader.DrawTex(&m_Tex, Math::Rectangle(8 * m_MinOnes, 0, 8, 8), alpha);
         //コロン
         SHADER.m_spriteShader.SetMatrix(m_ColonUI.m_Mat);
-        SHADER.m_spriteShader.DrawTex(&m_ColonTex, Math::Rectangle(0, 0, 8, 8), 0.3f);
+        SHADER.m_spriteShader.DrawTex(&m_ColonTex, Math::Rectangle(0, 0, 8, 8), alpha);
         //秒の十の位
         SHADER.m_spriteShader.SetMatrix(m_AliveSecTenUI.m_Mat);
-        SHADER.m_spriteShader.DrawTex(&m_Tex, Math::Rectangle(8 * m_SecTens, 0, 8, 8), 0.3f);
+        SHADER.m_spriteShader.DrawTex(&m_Tex, Math::Rectangle(8 * m_SecTens, 0, 8, 8), alpha);
         //秒の一の位
         SHADER.m_spriteShader.SetMatrix(m_AliveSecOneUI.m_Mat);
-        SHADER.m_spriteShader.DrawTex(&m_Tex, Math::Rectangle(8 * m_SecOnes, 0, 8, 8), 0.3f);
+        SHADER.m_spriteShader.DrawTex(&m_Tex, Math::Rectangle(8 * m_SecOnes, 0, 8, 8), alpha);
+    }
+}
+
+void Time::Release()
+{
+    m_Tex.Release();
+    m_ColonTex.Release();
+}
+
+void Time::PosScaleSet(bool flg)
+{
+    if(flg)
+    {
+        m_AliveMinTenUI.m_Pos = { -260,0 };
+        m_AliveMinOneUI.m_Pos = { -110,0 };
+        m_ColonUI.m_Pos = { 0,0 };
+        m_AliveSecTenUI.m_Pos = { 110,0 };
+        m_AliveSecOneUI.m_Pos = { 260,0 };
+
+        m_AliveMinTenUI.m_Scale = 20;
+        m_AliveMinOneUI.m_Scale = 20;
+        m_ColonUI.m_Scale = 20;
+        m_AliveSecTenUI.m_Scale = 20;
+        m_AliveSecOneUI.m_Scale = 20;
+    }
+    else
+    {
+        m_AliveMinTenUI.m_Pos = { -130,-100 };
+        m_AliveMinOneUI.m_Pos = { -55,-100 };
+        m_ColonUI.m_Pos = { 0,-100 };
+        m_AliveSecTenUI.m_Pos = { 55,-100 };
+        m_AliveSecOneUI.m_Pos = { 130,-100 };
+
+        m_AliveMinTenUI.m_Scale = 10;
+        m_AliveMinOneUI.m_Scale = 10;
+        m_ColonUI.m_Scale = 10;
+        m_AliveSecTenUI.m_Scale = 10;
+        m_AliveSecOneUI.m_Scale = 10;
     }
 }
 

@@ -111,6 +111,7 @@ void GameScene::EnemySpawn()
 		}
 
 		m_WaveTimer = 0.0f;
+		m_WaveCount += 3;
 	}
 }
 

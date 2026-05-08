@@ -24,7 +24,7 @@ void Player::Update()
 
 	m_ShotWait++;
 
-	if (m_ShotWait > 15)
+	if (m_ShotWait > m_shotWaitTime)
 	{
 		if (GetAsyncKeyState(VK_LBUTTON) & 0x8000)
 		{
@@ -59,8 +59,18 @@ void Player::Update()
 				if (obj->GetAliveFlg())
 				{
 					obj->OnHit();
+					ItemHit();
 				}
 			}
+		}
+	}
+
+	if (m_ActiveItemFlg)
+	{
+		m_ActiveItemTime--;
+		if (m_ActiveItemTime <= 0)
+		{
+			DefStatu();
 		}
 	}
 
@@ -81,6 +91,12 @@ void Player::OnHit()
 	m_AliveFlg = false;
 }
 
+void Player::ItemHit()
+{
+	m_shotWaitTime = 8;
+	m_ActiveItemFlg = true;
+}
+
 void Player::PlayerMove()
 {
 	m_MoveVec = { 0,0 };
@@ -98,6 +114,13 @@ void Player::PlayerRotation()
 	float dy = Mouse::Instance().GetMousePos().y - m_Pos.y;
 
 	m_Angle = atan2(dy, dx);
+}
+
+void Player::DefStatu()
+{
+	m_shotWaitTime = 15;
+	m_ActiveItemFlg = false;
+	m_ActiveItemTime = 5 * 60;
 }
 
 void Player::Release()

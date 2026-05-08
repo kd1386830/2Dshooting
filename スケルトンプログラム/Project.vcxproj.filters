@@ -82,6 +82,9 @@
     <Filter Include="Src\Application\Scene\GameScene\Object\Item">
       <UniqueIdentifier>{9d40607e-2bd7-4f1a-8240-fdaa9517c3ad}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Src\Application\Scene\ResultScene\Result">
+      <UniqueIdentifier>{c052be41-2357-4601-9441-0b0ccc749b6b}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\Pch.h">
@@ -225,6 +228,9 @@
     <ClInclude Include="Src\Application\Scene\GameScene\Object\Item\Item.h">
       <Filter>Src\Application\Scene\GameScene\Object\Item</Filter>
     </ClInclude>
+    <ClInclude Include="Src\Application\Scene\ResultScene\Result\Score.h">
+      <Filter>Src\Application\Scene\ResultScene\Result</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Pch.cpp">
@@ -337,6 +343,9 @@
     </ClCompile>
     <ClCompile Include="Src\Application\Scene\GameScene\Object\Item\Item.cpp">
       <Filter>Src\Application\Scene\GameScene\Object\Item</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\Application\Scene\ResultScene\Result\Score.cpp">
+      <Filter>Src\Application\Scene\ResultScene\Result</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

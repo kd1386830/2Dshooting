@@ -1,5 +1,6 @@
 #include "Item.h"
 #include"../../GameScene.h"
+#include"../Player/Player.h"
 
 void Item::Init()
 {

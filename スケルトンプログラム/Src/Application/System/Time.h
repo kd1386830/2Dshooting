@@ -21,10 +21,12 @@ public:
 	void Init();
 	void Update();
 	void Draw();
+	void Release();
 
+	void PosScaleSet(bool flg);
 	void StaartCountDown(float time);
 
-	float GetAliveTime() { return m_CountUp; }
+	int GetAliveTime() { return m_TotalSec; }
 	bool GetStartFlg() { return m_GameStartFlg; }
 	bool GetOverFlg() { return m_GameOverFlg; }
 
@@ -46,8 +48,8 @@ private:
 
 	TimeUI m_ColonUI;
 
-	int m_CountDown = 0.0f;			//カウントダウンタイマー
-	int m_CountUp = 0.0f;			//カウントアップタイマー
+	int m_CountDown = 0;			//カウントダウンタイマー
+	int m_CountUp = 0;				//カウントアップタイマー
 
 	bool m_GameStartFlg = false;	//ゲーム開始フラグ
 	bool m_GameOverFlg = false;		//ゲームオーバーフラグ
@@ -59,6 +61,8 @@ private:
 	int m_MinOnes = 0;				//分の一の位
 	int m_SecTens = 0;				//秒の十の位
 	int	m_SecOnes = 0;				//秒の一の位
+
+	float alpha = 0.3f;
 
 public:
 	static Time& Instance()

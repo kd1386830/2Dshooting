@@ -1,6 +1,8 @@
 #pragma once
 #include"../BaseScene/BaseScene.h"
 
+class Score;
+
 class ResultScene :public BaseScene
 {
 public:
@@ -15,5 +17,7 @@ public:
 private:
 
 	void Release()		override;
+
+	std::shared_ptr<Score> m_score;
 
 };
