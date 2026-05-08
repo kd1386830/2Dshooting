@@ -8,6 +8,8 @@
 
 void SceneManager::Init()
 {
+	m_Tex.Load("Texture/UI/SceneChange.png");
+
 	Mouse::Instance().Init();
 
 	ChangeScene(m_currentSceneType);
@@ -25,6 +27,10 @@ void SceneManager::Update()
 	m_currentScene->Update();
 	Mouse::Instance().Update();
 	BackGround::Instance().Update();
+
+	UpdateFade();
+
+	m_Mat = Math::Matrix::CreateTranslation(m_Pos.x, m_Pos.y, 0);
 }
 
 void SceneManager::Draw()
@@ -32,11 +38,52 @@ void SceneManager::Draw()
 	BackGround::Instance().Draw();
 
 	m_currentScene->Draw();
+
+	SHADER.m_spriteShader.SetMatrix(m_Mat);
+	SHADER.m_spriteShader.DrawTex(&m_Tex, Math::Rectangle(0, 0, 1280, 720), FadeAlpha);
+
 	Mouse::Instance().Draw();
+}
+
+void SceneManager::ChangeFade(SceneType nextScene)
+{
+	m_NextScene = nextScene;
+	nowFade = FadeType::Fade_out;
+	FadeAlpha = 0.0f;
+}
+
+void SceneManager::UpdateFade()
+{
+	if (nowFade == FadeType::Fade_out)
+	{
+		FadeAlpha += 0.05f;
+
+		if (FadeAlpha >= 1.0f)
+		{
+
+			FadeAlpha = 1.5f;
+			SetNextScene(m_NextScene);
+
+			nowFade = FadeType::Fade_in;
+		}
+
+	}
+	else if (nowFade == FadeType::Fade_in)
+	{
+		FadeAlpha -= 0.05f;
+
+		if (FadeAlpha <= 0.0f)
+		{
+			FadeAlpha = 0.0f;
+			nowFade = FadeType::Fade_no;
+		}
+	}
 }
 
 void SceneManager::Release()
 {
+	m_Tex.Release();
+
 	Mouse::Instance().Release();
 
 	BackGround::Instance().Release();

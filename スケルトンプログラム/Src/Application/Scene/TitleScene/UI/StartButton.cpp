@@ -15,7 +15,7 @@ void StartButton::Update()
 	{
 		if (MouseHit())
 		{
-			SceneManager::Instance().SetNextScene(SceneManager::SceneType::Game);
+			SceneManager::Instance().ChangeFade(SceneManager::SceneType::Game);
 		}
 	}
 

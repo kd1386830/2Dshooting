@@ -89,6 +89,7 @@ void Player::Draw()
 void Player::OnHit()
 {
 	m_AliveFlg = false;
+	SceneManager::Instance().ChangeFade(SceneManager::SceneType::Result);
 }
 
 void Player::ItemHit()

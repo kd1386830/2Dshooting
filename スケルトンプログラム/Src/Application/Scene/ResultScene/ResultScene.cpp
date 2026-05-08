@@ -20,7 +20,7 @@ void ResultScene::Update()
 
 	if (GetAsyncKeyState(VK_LBUTTON) & 0x8000)
 	{
-		SceneManager::Instance().SetNextScene(SceneManager::SceneType::Title);
+		SceneManager::Instance().ChangeFade(SceneManager::SceneType::Title);
 	}
 }
 

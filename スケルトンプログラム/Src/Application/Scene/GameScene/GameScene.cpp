@@ -57,7 +57,7 @@ void GameScene::Update()
 
 	if (GetAsyncKeyState('R') & 0x8000)
 	{
-		SceneManager::Instance().SetNextScene(SceneManager::SceneType::Result);
+		SceneManager::Instance().ChangeFade(SceneManager::SceneType::Result);
 	}
 }
 
