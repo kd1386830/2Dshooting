@@ -2,8 +2,8 @@
 
 void Title::Init()
 {
-	m_Tex.Load("");
-	m_Pos = { 0,0 };
+	m_Tex.Load("Texture/UI/Title.png");
+	m_Pos = { 0,120 };
 }
 
 void Title::Update()
@@ -13,7 +13,8 @@ void Title::Update()
 
 void Title::Draw()
 {
-	//SPACE SURVIVAL
+	SHADER.m_spriteShader.SetMatrix(m_Mat);
+	SHADER.m_spriteShader.DrawTex(&m_Tex, Math::Rectangle(0, 0, 701, 259), 1.0f);
 }
 
 void Title::Release()
