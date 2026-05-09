@@ -1,5 +1,6 @@
 #include "Enemy.h"
 #include"../Player/Player.h"
+#include"../Effect/Explosion.h"
 
 #include"../../GameScene.h"
 
@@ -31,6 +32,10 @@ void Enemy::Draw()
 
 void Enemy::OnHit()
 {
+	auto effect = std::make_shared<Explosion>();
+	effect->Init(m_Pos);
+	m_Owner->AddObject(effect);
+
 	m_AliveFlg = false;
 }
 

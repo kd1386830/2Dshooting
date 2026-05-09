@@ -151,11 +151,11 @@ void Time::PosScaleSet(bool flg)
     }
     else
     {
-        m_AliveMinTenUI.m_Pos = { -130,-100 };
-        m_AliveMinOneUI.m_Pos = { -55,-100 };
-        m_ColonUI.m_Pos = { 0,-100 };
-        m_AliveSecTenUI.m_Pos = { 55,-100 };
-        m_AliveSecOneUI.m_Pos = { 130,-100 };
+        m_AliveMinTenUI.m_Pos = { -130,0 };
+        m_AliveMinOneUI.m_Pos = { -55,0 };
+        m_ColonUI.m_Pos = { 0,0 };
+        m_AliveSecTenUI.m_Pos = { 55,0 };
+        m_AliveSecOneUI.m_Pos = { 130,0 };
 
         m_AliveMinTenUI.m_Scale = 10;
         m_AliveMinOneUI.m_Scale = 10;

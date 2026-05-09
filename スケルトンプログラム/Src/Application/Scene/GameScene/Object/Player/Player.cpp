@@ -1,5 +1,6 @@
 #include "Player.h"
 #include"../Bullet/Bullet.h"
+#include"../Effect/Explosion.h"
 
 #include"../../GameScene.h"
 #include"../../../../System/Mouse.h"
@@ -13,6 +14,7 @@ void Player::Init()
 	m_AliveFlg = true;
 	m_Radius = 32.0f;
 	m_Scale = 4;
+	m_shotWaitTime = 15;
 
 	m_ObjType = ObjectType::Player;
 }
@@ -28,8 +30,7 @@ void Player::Update()
 	{
 		if (GetAsyncKeyState(VK_LBUTTON) & 0x8000)
 		{
-			std::shared_ptr<Bullet>bullet;
-			bullet = std::make_shared<Bullet>();
+			auto bullet = std::make_shared<Bullet>();
 			bullet->Init();
 			bullet->SetOwner(m_Owner);
 			bullet->Shot(this);
@@ -65,15 +66,6 @@ void Player::Update()
 		}
 	}
 
-	if (m_ActiveItemFlg)
-	{
-		m_ActiveItemTime--;
-		if (m_ActiveItemTime <= 0)
-		{
-			DefStatu();
-		}
-	}
-
 	m_TransMat = Math::Matrix::CreateTranslation(m_Pos.x, m_Pos.y, 0);
 	m_ScaleMat = Math::Matrix::CreateScale(m_Scale, m_Scale, 0);
 	m_RotateMat = Math::Matrix::CreateRotationZ(m_Angle - DirectX::XM_PIDIV2);
@@ -88,14 +80,17 @@ void Player::Draw()
 
 void Player::OnHit()
 {
+	auto effect = std::make_shared<Explosion>();
+	effect->Init(m_Pos);
+	m_Owner->AddObject(effect);
+
 	m_AliveFlg = false;
-	SceneManager::Instance().ChangeFade(SceneManager::SceneType::Result);
+	//SceneManager::Instance().ChangeFade(SceneManager::SceneType::Result);
 }
 
 void Player::ItemHit()
 {
-	m_shotWaitTime = 8;
-	m_ActiveItemFlg = true;
+	m_shotWaitTime--;
 }
 
 void Player::PlayerMove()
@@ -115,13 +110,6 @@ void Player::PlayerRotation()
 	float dy = Mouse::Instance().GetMousePos().y - m_Pos.y;
 
 	m_Angle = atan2(dy, dx);
-}
-
-void Player::DefStatu()
-{
-	m_shotWaitTime = 15;
-	m_ActiveItemFlg = false;
-	m_ActiveItemTime = 5 * 60;
 }
 
 void Player::Release()

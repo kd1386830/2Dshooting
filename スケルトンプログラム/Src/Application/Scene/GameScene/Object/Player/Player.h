@@ -21,8 +21,6 @@ public:
 	void PlayerMove();		//移動処理
 	void PlayerRotation();	//回転処理
 
-	void DefStatu();
-
 	float GetAngle() { return m_Angle; }
 
 	void SetShotWaitTime(int time) { m_shotWaitTime = time; }
@@ -48,6 +46,4 @@ private:
 	int m_ShotWait = 0;			//弾の発射間隔
 	int m_shotWaitTime = 15;
 
-	int m_ActiveItemTime = 5 * 60;
-	bool m_ActiveItemFlg = false;
 };

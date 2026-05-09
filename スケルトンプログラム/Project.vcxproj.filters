@@ -85,6 +85,9 @@
     <Filter Include="Src\Application\Scene\ResultScene\Result">
       <UniqueIdentifier>{c052be41-2357-4601-9441-0b0ccc749b6b}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Src\Application\Scene\GameScene\Object\Effect">
+      <UniqueIdentifier>{2b5268f8-7dd3-4e5b-8fa0-00449fe53ce8}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\Pch.h">
@@ -231,6 +234,18 @@
     <ClInclude Include="Src\Application\Scene\ResultScene\Result\Score.h">
       <Filter>Src\Application\Scene\ResultScene\Result</Filter>
     </ClInclude>
+    <ClInclude Include="Src\Application\Scene\GameScene\Object\Effect\Explosion.h">
+      <Filter>Src\Application\Scene\GameScene\Object\Effect</Filter>
+    </ClInclude>
+    <ClInclude Include="Src\Application\Scene\ResultScene\Result\RetryButton.h">
+      <Filter>Src\Application\Scene\ResultScene\Result</Filter>
+    </ClInclude>
+    <ClInclude Include="Src\Application\System\MouseHit.h">
+      <Filter>Src\Application\System</Filter>
+    </ClInclude>
+    <ClInclude Include="Src\Application\Scene\ResultScene\Result\ReturnTitleButton.h">
+      <Filter>Src\Application\Scene\ResultScene\Result</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Pch.cpp">
@@ -345,6 +360,18 @@
       <Filter>Src\Application\Scene\GameScene\Object\Item</Filter>
     </ClCompile>
     <ClCompile Include="Src\Application\Scene\ResultScene\Result\Score.cpp">
+      <Filter>Src\Application\Scene\ResultScene\Result</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\Application\Scene\GameScene\Object\Effect\Explosion.cpp">
+      <Filter>Src\Application\Scene\GameScene\Object\Effect</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\Application\Scene\ResultScene\Result\RetryButton.cpp">
+      <Filter>Src\Application\Scene\ResultScene\Result</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\Application\System\MouseHit.cpp">
+      <Filter>Src\Application\System</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\Application\Scene\ResultScene\Result\ReturnTitleButton.cpp">
       <Filter>Src\Application\Scene\ResultScene\Result</Filter>
     </ClCompile>
   </ItemGroup>

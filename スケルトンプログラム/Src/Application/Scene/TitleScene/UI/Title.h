@@ -18,11 +18,4 @@ private:
 	Math::Matrix m_Mat;
 	Math::Vector2 m_Pos;
 
-
-public:
-	static Title& Instance()
-	{
-		static Title instance;
-		return instance;
-	}
 };

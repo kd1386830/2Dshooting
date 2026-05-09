@@ -6,7 +6,7 @@ void Score::Init()
 	m_Tex.Load("Texture/UI/Rank.png");
 
 	m_Scale = 20.0f;
-	m_Pos = { 0,100 };
+	m_Pos = { 0,170 };
 
 	m_Rank = RankType::None;
 }

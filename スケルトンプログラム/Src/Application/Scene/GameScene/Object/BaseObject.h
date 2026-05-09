@@ -11,6 +11,7 @@ public:
 		Enemy,
 		Bullet,
 		Item,
+		Explosion,
 	};
 
 

@@ -1,16 +1,15 @@
-#include "StartButton.h"
-#include"../../SceneManager.h"
-#include"../../../System/Mouse.h"
+#include "ReturnTitleButton.h"
 #include"../../../System/MouseHit.h"
+#include"../../SceneManager.h"
 
-void StartButton::Init()
+void ReturnTitleButton::Init()
 {
-	m_Tex.Load("Texture/UI/GAME_START.png");
-	m_Pos = { 0,-180 };
+	m_Tex.Load("Texture/UI/RETURN_TO_TITLE.png");
+	m_Pos = { 0,-230 };
 	m_Scale = 7;
 }
 
-void StartButton::Update()
+void ReturnTitleButton::Update()
 {
 	if (MouseHit::Instance().UIMouseHit(m_Pos, m_Radius, m_Scale))
 	{
@@ -18,7 +17,7 @@ void StartButton::Update()
 
 		if (GetAsyncKeyState(VK_LBUTTON) & 0x8000)
 		{
-			SceneManager::Instance().ChangeFade(SceneManager::SceneType::Game);
+			SceneManager::Instance().ChangeFade(SceneManager::SceneType::Title);
 		}
 	}
 	else
@@ -26,18 +25,19 @@ void StartButton::Update()
 		m_Color = { 0.467f, 0.800f, 0.165f };
 	}
 
+
 	m_TransMat = Math::Matrix::CreateTranslation(m_Pos.x, m_Pos.y, 0);
 	m_ScaleMat = Math::Matrix::CreateScale(m_Scale, m_Scale, 0);
 	m_Mat = m_ScaleMat * m_TransMat;
 }
 
-void StartButton::Draw()
+void ReturnTitleButton::Draw()
 {
 	SHADER.m_spriteShader.SetMatrix(m_Mat);
-	SHADER.m_spriteShader.DrawTex_Color(&m_Tex, Math::Rectangle(0, 0, 76, 8), &m_Color);
+	SHADER.m_spriteShader.DrawTex_Color(&m_Tex, Math::Rectangle(0, 0, 109, 8), &m_Color);
 }
 
-void StartButton::Release()
+void ReturnTitleButton::Release()
 {
 	m_Tex.Release();
 }

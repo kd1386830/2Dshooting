@@ -1,6 +1,9 @@
 #pragma once
 #include"../BaseScene/BaseScene.h"
 
+class Title;
+class StartButton;
+
 class TitleScene :public BaseScene
 {
 public:
@@ -15,5 +18,8 @@ public:
 private:
 
 	void Release()		override;
+
+	std::shared_ptr<Title> m_title;
+	std::shared_ptr<StartButton> m_startButton;
 
 };

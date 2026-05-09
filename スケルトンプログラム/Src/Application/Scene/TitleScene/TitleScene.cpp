@@ -4,25 +4,27 @@
 
 void TitleScene::Init()
 {
-	Title::Instance().Init();
-	StartButton::Instance().Init();
+	m_title = std::make_shared<Title>();
+	m_startButton = std::make_shared<StartButton>();
+
+	m_title->Init();
+	m_startButton->Init();
 }
 
 void TitleScene::Update()
 {
-	Title::Instance().Update();
-	StartButton::Instance().Update();
-	
+	m_title->Update();
+	m_startButton->Update();
 }
 
 void TitleScene::Draw()
 {
-	Title::Instance().Draw();
-	StartButton::Instance().Draw();
+	m_title->Draw();
+	m_startButton->Draw();
 }
 
 void TitleScene::Release()
 {
-	Title::Instance().Release();
-	StartButton::Instance().Release();
+	m_title->Release();
+	m_startButton->Release();
 }

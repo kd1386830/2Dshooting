@@ -1,7 +1,8 @@
 #include "ResultScene.h"
-#include"../SceneManager.h"
 
 #include"Result/Score.h"
+#include"Result/RetryButton.h"
+#include"Result/ReturnTitleButton.h"
 #include"../../System/Time.h"
 
 void ResultScene::Init()
@@ -9,7 +10,12 @@ void ResultScene::Init()
 	Time::Instance().Init();
 
 	m_score = std::make_shared<Score>();
+	m_retryButton = std::make_shared<RetryButton>();
+	m_returnTitleButton = std::make_shared<ReturnTitleButton>();
+
 	m_score->Init();
+	m_retryButton->Init();
+	m_returnTitleButton->Init();
 }
 
 void ResultScene::Update()
@@ -17,11 +23,8 @@ void ResultScene::Update()
 	Time::Instance().Update();
 
 	m_score->Update();
-
-	if (GetAsyncKeyState(VK_LBUTTON) & 0x8000)
-	{
-		SceneManager::Instance().ChangeFade(SceneManager::SceneType::Title);
-	}
+	m_retryButton->Update();
+	m_returnTitleButton->Update();
 }
 
 void ResultScene::Draw()
@@ -29,6 +32,8 @@ void ResultScene::Draw()
 	Time::Instance().Draw();
 
 	m_score->Draw();
+	m_retryButton->Draw();
+	m_returnTitleButton->Draw();
 }
 
 void ResultScene::Release()
@@ -36,4 +41,6 @@ void ResultScene::Release()
 	Time::Instance().Release();
 
 	m_score->Release();
+	m_retryButton->Release();
+	m_returnTitleButton->Release();
 }

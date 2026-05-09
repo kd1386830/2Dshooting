@@ -1,11 +1,11 @@
 #pragma once
 
-class StartButton
+class RetryButton
 {
 public:
 
-	StartButton() {}
-	~StartButton() {}
+	RetryButton() {}
+	~RetryButton() {}
 
 	void Init();
 	void Update();
@@ -15,14 +15,15 @@ public:
 private:
 
 	KdTexture m_Tex;
+
 	Math::Matrix m_TransMat;
 	Math::Matrix m_ScaleMat;
 	Math::Matrix m_Mat;
 
-	Math::Color m_Color;
+	Math::Color	m_Color;
 
 	Math::Vector2 m_Pos;
-	Math::Vector2 m_Radius = { 38.0f,4.0f };
+	Math::Vector2 m_Radius = { 20.0f,4.0f };
 
 	float m_Scale;
 
