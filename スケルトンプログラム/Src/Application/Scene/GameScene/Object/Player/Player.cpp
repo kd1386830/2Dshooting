@@ -102,7 +102,6 @@ void Player::OnHit()
 	m_Owner->AddObject(effect);
 
 	m_AliveFlg = false;
-	//SceneManager::Instance().ChangeFade(SceneManager::SceneType::Result);
 }
 
 void Player::ItemHit(Item* item)

@@ -2,6 +2,7 @@
 #include"../SceneManager.h"
 #include"System/Hit.h"
 #include"../../System/Time.h"
+#include"System/GameOver.h"
 
 #include"Object/Player/Player.h"
 #include"Object/Enemy/Enemy.h"
@@ -10,6 +11,8 @@
 
 void GameScene::Init()
 {
+	GameOver::Instance().SetOwner(this);
+	GameOver::Instance().Init();
 
 	Time::Instance().SetOwner(this);
 	Time::Instance().Init();
@@ -26,6 +29,8 @@ void GameScene::Init()
 
 void GameScene::Update()
 {
+	GameOver::Instance().Update();
+
 	auto it = m_objList.begin();
 
 	while (it != m_objList.end())
@@ -63,7 +68,6 @@ void GameScene::Update()
 
 void GameScene::Draw()
 {
-
 	Time::Instance().Draw();
 
 	if (!Time::Instance().GetStartFlg())return;
@@ -72,6 +76,8 @@ void GameScene::Draw()
 	{
 		m_objList[i]->Draw();
 	}
+
+	GameOver::Instance().Draw();
 
 }
 

@@ -249,6 +249,9 @@
     <ClInclude Include="Src\Application\Scene\GameScene\Object\Effect\Sparkle.h">
       <Filter>Src\Application\Scene\GameScene\Object\Effect</Filter>
     </ClInclude>
+    <ClInclude Include="Src\Application\Scene\GameScene\System\GameOver.h">
+      <Filter>Src\Application\Scene\GameScene\System</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Pch.cpp">
@@ -379,6 +382,9 @@
     </ClCompile>
     <ClCompile Include="Src\Application\Scene\GameScene\Object\Effect\Sparkle.cpp">
       <Filter>Src\Application\Scene\GameScene\Object\Effect</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\Application\Scene\GameScene\System\GameOver.cpp">
+      <Filter>Src\Application\Scene\GameScene\System</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

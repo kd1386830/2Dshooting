@@ -33,4 +33,10 @@ private:
 	float m_EnemySpd = 3.0f;	//敵の移動スピード
 	Math::Vector2 m_EnemyVec;	//移動速度ベクトル
 
+	Math::Matrix m_TransMat;
+	Math::Matrix m_ScaleMat;
+
+	float m_Scale = 4;
+	float m_AnimCnt = 0;
+	float m_AnimWait = rand() % 2 * 60.0f;
 };
