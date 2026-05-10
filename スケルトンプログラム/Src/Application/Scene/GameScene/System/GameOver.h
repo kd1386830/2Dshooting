@@ -28,7 +28,7 @@ private:
 
 	Math::Vector2 m_Pos;
 
-	float m_Scale = 7;
+	float m_Scale = 10;
 	float m_Alpha = 0.0f;
 
 	float m_SceneCount = 0.0f;

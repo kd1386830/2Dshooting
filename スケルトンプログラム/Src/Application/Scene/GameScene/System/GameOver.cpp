@@ -43,7 +43,7 @@ void GameOver::Update()
 		if (m_SceneFlg)
 		{
 			m_SceneCount++;
-			if (!m_ChangeSceneFlg && m_SceneCount >= 1.0f * 60.0f)
+			if (!m_ChangeSceneFlg && m_SceneCount >= 2.0f * 60.0f)
 			{
 				m_ChangeSceneFlg = true;
 				SceneManager::Instance().ChangeFade(SceneManager::SceneType::Result);
