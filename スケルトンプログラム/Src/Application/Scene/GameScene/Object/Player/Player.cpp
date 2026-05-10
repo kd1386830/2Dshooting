@@ -1,6 +1,8 @@
 #include "Player.h"
 #include"../Bullet/Bullet.h"
 #include"../Effect/Explosion.h"
+#include"../Effect/Sparkle.h"
+#include"../Item/Item.h"
 
 #include"../../GameScene.h"
 #include"../../../../System/Mouse.h"
@@ -59,12 +61,27 @@ void Player::Update()
 			{
 				if (obj->GetAliveFlg())
 				{
+					Item* item = static_cast<Item*>(obj.get());
+
 					obj->OnHit();
-					ItemHit();
+					ItemHit(item);
 				}
 			}
 		}
 	}
+
+	if (m_ItemActiveFlg)
+	{
+		m_ItemActiveTime--;
+		if (m_ItemActiveTime <= 0)
+		{
+			m_MoveSpd = 5.0f;
+			m_shotWaitTime = 15;
+
+			m_ItemActiveFlg = false;
+		}
+	}
+
 
 	m_TransMat = Math::Matrix::CreateTranslation(m_Pos.x, m_Pos.y, 0);
 	m_ScaleMat = Math::Matrix::CreateScale(m_Scale, m_Scale, 0);
@@ -88,9 +105,14 @@ void Player::OnHit()
 	//SceneManager::Instance().ChangeFade(SceneManager::SceneType::Result);
 }
 
-void Player::ItemHit()
+void Player::ItemHit(Item* item)
 {
-	m_shotWaitTime--;
+	m_ItemActiveTime = 5.0f * 60.0f;
+	auto effect = std::make_shared<Sparkle>();
+	effect->Init(this, item);
+	m_Owner->AddObject(effect);
+
+	m_ItemActiveFlg = true;
 }
 
 void Player::PlayerMove()

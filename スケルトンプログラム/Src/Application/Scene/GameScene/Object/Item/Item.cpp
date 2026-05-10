@@ -6,6 +6,7 @@ void Item::Init()
 {
 	ItemTypeSet();
 
+	
 	m_Tex.Load("Texture/Object/Item.png");
 
 	ItemSpawn();
@@ -33,7 +34,15 @@ void Item::Update()
 void Item::Draw()
 {
 	SHADER.m_spriteShader.SetMatrix(m_Mat);
-	SHADER.m_spriteShader.DrawTex(&m_Tex, Math::Rectangle(16, 0, 16, 16), 1.0f);
+	switch (m_Type)
+	{
+	case Item::ItemType::spdUp:
+		SHADER.m_spriteShader.DrawTex(&m_Tex, Math::Rectangle(16, 0, 16, 16), 1.0f);
+		break;
+	case Item::ItemType::ShotSpdUp:
+		SHADER.m_spriteShader.DrawTex(&m_Tex, Math::Rectangle(0, 0, 16, 16), 1.0f);
+		break;
+	}
 }
 
 void Item::Release()
@@ -43,6 +52,27 @@ void Item::Release()
 
 void Item::OnHit()
 {
+	for (auto& obj : m_Owner->GetObjList())
+	{
+		if (obj->GetObjType() == ObjectType::Player)
+		{
+			Player* player = dynamic_cast<Player*>(obj.get());
+
+			if (player)
+			{
+				switch (m_Type)
+				{
+				case Item::ItemType::spdUp:
+					player->SetSpeed(8.0f);
+					break;
+				case Item::ItemType::ShotSpdUp:
+					player->SetShotWaitTime(5);
+					break;
+				}
+			}
+		}
+	}
+
 	m_AliveFlg = false;
 }
 
@@ -109,5 +139,26 @@ void Item::ScrOutCheck()
 
 void Item::ItemTypeSet()
 {
-	m_Type = static_cast<ItemType>(rand() % 2);
+	switch (rand() % 2)
+	{
+	case 0:
+		m_Type = ItemType::spdUp;
+		break;
+	case 1:
+		m_Type = ItemType::ShotSpdUp;
+		break;
+	}
+}
+
+Math::Color Item::GetEffectColor()
+{
+	switch (m_Type)
+	{
+	case Item::ItemType::spdUp:
+		return Math::Color{ 0.2f, 0.2f, 1.0f };
+		break;
+	case Item::ItemType::ShotSpdUp:
+		return Math::Color{ 0.2f, 1.0f, 0.2f };
+		break;
+	}
 }

@@ -125,6 +125,7 @@ void GameScene::ItemSpawn()
 		item = std::make_shared<Item>();
 		item->Init();
 		item->SetOwner(this);
+
 		m_objList.push_back(item);
 
 

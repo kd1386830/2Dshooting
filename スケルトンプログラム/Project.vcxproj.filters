@@ -246,6 +246,9 @@
     <ClInclude Include="Src\Application\Scene\ResultScene\Result\ReturnTitleButton.h">
       <Filter>Src\Application\Scene\ResultScene\Result</Filter>
     </ClInclude>
+    <ClInclude Include="Src\Application\Scene\GameScene\Object\Effect\Sparkle.h">
+      <Filter>Src\Application\Scene\GameScene\Object\Effect</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Pch.cpp">
@@ -373,6 +376,9 @@
     </ClCompile>
     <ClCompile Include="Src\Application\Scene\ResultScene\Result\ReturnTitleButton.cpp">
       <Filter>Src\Application\Scene\ResultScene\Result</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\Application\Scene\GameScene\Object\Effect\Sparkle.cpp">
+      <Filter>Src\Application\Scene\GameScene\Object\Effect</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

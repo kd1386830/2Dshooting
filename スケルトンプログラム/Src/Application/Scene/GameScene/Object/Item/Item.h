@@ -29,7 +29,7 @@ public:
 
 	void ItemTypeSet();
 
-	ItemType GetItemType() { return m_Type; }
+	Math::Color GetEffectColor();
 
 	void SetOwner(GameScene* owner) { m_Owner = owner; }
 

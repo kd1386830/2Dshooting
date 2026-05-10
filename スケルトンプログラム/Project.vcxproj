@@ -167,6 +167,7 @@
     <ClInclude Include="Src\Application\Scene\GameScene\Object\BaseObject.h" />
     <ClInclude Include="Src\Application\Scene\GameScene\Object\Bullet\Bullet.h" />
     <ClInclude Include="Src\Application\Scene\GameScene\Object\Effect\Explosion.h" />
+    <ClInclude Include="Src\Application\Scene\GameScene\Object\Effect\Sparkle.h" />
     <ClInclude Include="Src\Application\Scene\GameScene\Object\Enemy\Enemy.h" />
     <ClInclude Include="Src\Application\Scene\GameScene\Object\Item\Item.h" />
     <ClInclude Include="Src\Application\Scene\GameScene\Object\Player\Player.h" />
@@ -213,6 +214,7 @@
     <ClCompile Include="Src\Application\Scene\GameScene\Object\BaseObject.cpp" />
     <ClCompile Include="Src\Application\Scene\GameScene\Object\Bullet\Bullet.cpp" />
     <ClCompile Include="Src\Application\Scene\GameScene\Object\Effect\Explosion.cpp" />
+    <ClCompile Include="Src\Application\Scene\GameScene\Object\Effect\Sparkle.cpp" />
     <ClCompile Include="Src\Application\Scene\GameScene\Object\Enemy\Enemy.cpp" />
     <ClCompile Include="Src\Application\Scene\GameScene\Object\Item\Item.cpp" />
     <ClCompile Include="Src\Application\Scene\GameScene\Object\Player\Player.cpp" />

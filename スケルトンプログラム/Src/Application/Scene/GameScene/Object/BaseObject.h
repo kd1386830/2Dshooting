@@ -12,6 +12,7 @@ public:
 		Bullet,
 		Item,
 		Explosion,
+		Sparkle,
 	};
 
 
