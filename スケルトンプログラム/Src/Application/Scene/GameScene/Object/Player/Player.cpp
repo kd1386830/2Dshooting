@@ -25,6 +25,7 @@ void Player::Update()
 {
 	PlayerMove();
 	PlayerRotation();
+	PlayerScreenLimit();
 
 	m_ShotWait++;
 
@@ -131,6 +132,14 @@ void Player::PlayerRotation()
 	float dy = Mouse::Instance().GetMousePos().y - m_Pos.y;
 
 	m_Angle = atan2(dy, dx);
+}
+
+void Player::PlayerScreenLimit()
+{
+	if (m_Pos.x <= -640)m_Pos.x = -640;
+	if (m_Pos.x >= 640)m_Pos.x = 640;
+	if (m_Pos.y <= -360)m_Pos.y = -360;
+	if (m_Pos.y >= 360)m_Pos.y = 360;
 }
 
 void Player::Release()

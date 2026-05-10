@@ -21,6 +21,7 @@ public:
 
 	void PlayerMove();		//移動処理
 	void PlayerRotation();	//回転処理
+	void PlayerScreenLimit();
 
 	float GetAngle() { return m_Angle; }
 	float GetItemActiveTime() { return m_ItemActiveTime; }
