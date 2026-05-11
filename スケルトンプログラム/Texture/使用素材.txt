@@ -1,7 +1,5 @@
-
-
+敵、自機などすべての素材
 https://grafxkid.itch.io/mini-pixel-pack-3
-
 
 
 //キーボードUI

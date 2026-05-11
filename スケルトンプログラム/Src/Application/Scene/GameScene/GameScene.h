@@ -35,11 +35,14 @@ private:
 	int m_SpawnInterval = 1.5f * 60.0f; //通常湧き間隔
 
 	int m_WaveTimer = 0.0f;
-	int m_WaveInterval = 30.0f * 60.0f; //30秒ごと
+	int m_WaveInterval = 20.0f * 60.0f; //20秒ごと
 
 	int m_WaveCount = 5; //一度に出す数
 
 	int m_ItemTimer = 0.0f;
 	int m_ItemInterval = 10.0f * 60.0f;
+
+	int m_RandTop = 1;
+	int m_RandBottom = 2;
 
 };

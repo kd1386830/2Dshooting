@@ -26,6 +26,8 @@ public:
 	void PosScaleSet(bool flg);
 	void StaartCountDown(float time);
 
+	void SetGameStartFlg(bool flg) { m_GameStartFlg = flg; }
+
 	int GetAliveTime() { return m_TotalSec; }
 	bool GetStartFlg() { return m_GameStartFlg; }
 	bool GetOverFlg() { return m_GameOverFlg; }

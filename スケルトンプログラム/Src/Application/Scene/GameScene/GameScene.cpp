@@ -88,7 +88,7 @@ void GameScene::EnemySpawn()
 
 	if (m_SpawnTimer >= m_SpawnInterval)
 	{
-		int count = rand() % 3 + 2; // 2〜3体
+		int count = rand() % m_RandTop + m_RandBottom;
 
 		for (int i = 0; i < count; i++)
 		{
@@ -116,6 +116,8 @@ void GameScene::EnemySpawn()
 			m_objList.push_back(enemy);
 		}
 
+		m_RandTop++;
+		m_RandBottom++;
 		m_WaveTimer = 0.0f;
 		m_WaveCount += 5;
 	}

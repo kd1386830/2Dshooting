@@ -162,6 +162,7 @@
     <ClInclude Include="Src\Application\Scene.h" />
     <ClInclude Include="Src\Application\main.h" />
     <ClInclude Include="Src\Application\Scene\BackGround.h" />
+    <ClInclude Include="Src\Application\Scene\BackGroundObject\Star.h" />
     <ClInclude Include="Src\Application\Scene\BaseScene\BaseScene.h" />
     <ClInclude Include="Src\Application\Scene\GameScene\GameScene.h" />
     <ClInclude Include="Src\Application\Scene\GameScene\Object\BaseObject.h" />
@@ -210,6 +211,7 @@
     <ClCompile Include="Src\Application\Scene.cpp" />
     <ClCompile Include="Src\Application\main.cpp" />
     <ClCompile Include="Src\Application\Scene\BackGround.cpp" />
+    <ClCompile Include="Src\Application\Scene\BackGroundObject\Star.cpp" />
     <ClCompile Include="Src\Application\Scene\BaseScene\BaseScene.cpp" />
     <ClCompile Include="Src\Application\Scene\GameScene\GameScene.cpp" />
     <ClCompile Include="Src\Application\Scene\GameScene\Object\BaseObject.cpp" />

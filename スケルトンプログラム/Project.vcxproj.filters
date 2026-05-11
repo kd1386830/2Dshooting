@@ -88,6 +88,9 @@
     <Filter Include="Src\Application\Scene\GameScene\Object\Effect">
       <UniqueIdentifier>{2b5268f8-7dd3-4e5b-8fa0-00449fe53ce8}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Src\Application\Scene\BackGroundObject">
+      <UniqueIdentifier>{d471a046-9f10-48fe-8dd4-0768d45b08ed}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\Pch.h">
@@ -252,6 +255,9 @@
     <ClInclude Include="Src\Application\Scene\GameScene\System\GameOver.h">
       <Filter>Src\Application\Scene\GameScene\System</Filter>
     </ClInclude>
+    <ClInclude Include="Src\Application\Scene\BackGroundObject\Star.h">
+      <Filter>Src\Application\Scene\BackGroundObject</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Pch.cpp">
@@ -385,6 +391,9 @@
     </ClCompile>
     <ClCompile Include="Src\Application\Scene\GameScene\System\GameOver.cpp">
       <Filter>Src\Application\Scene\GameScene\System</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\Application\Scene\BackGroundObject\Star.cpp">
+      <Filter>Src\Application\Scene\BackGroundObject</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
