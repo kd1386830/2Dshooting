@@ -16,6 +16,7 @@ void Scene::Update()
 
 void Scene::Init()
 {
+	srand(time(0));
 	SceneManager::Instance().Init();
 }
 

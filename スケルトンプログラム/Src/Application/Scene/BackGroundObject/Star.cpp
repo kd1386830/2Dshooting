@@ -35,6 +35,7 @@ void Star::Update()
 			if (m_Alpha[i] <= 0.0f)
 			{
 				m_Alpha[i] = 0.0f;
+				m_Pos[i] = { rand() % 1280 - 640.0f,rand() % 720 - 360.0f };
 
 				m_BrightFlg[i] = true;
 			}

@@ -24,6 +24,8 @@ public:
 	void Update();
 	void Draw();
 
+	void Debug();
+
 	void ChangeFade(SceneType nextScene);
 	void UpdateFade();
 

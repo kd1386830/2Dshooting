@@ -34,19 +34,7 @@ void SceneManager::Update()
 
 	UpdateFade();
 
-	if (GetAsyncKeyState('T') & 0x8000)
-	{
-		ChangeFade(SceneType::Title);
-	}
-	if (GetAsyncKeyState('G') & 0x8000)
-	{
-		ChangeFade(SceneType::Game);
-	}
-	if (GetAsyncKeyState('R') & 0x8000)
-	{
-		Time::Instance().SetGameStartFlg(true);
-		ChangeFade(SceneType::Result);
-	}
+	Debug();
 
 
 	m_Mat = Math::Matrix::CreateTranslation(m_Pos.x, m_Pos.y, 0);
@@ -63,6 +51,23 @@ void SceneManager::Draw()
 	SHADER.m_spriteShader.DrawTex(&m_Tex, Math::Rectangle(0, 0, 1280, 720), FadeAlpha);
 
 	Mouse::Instance().Draw();
+}
+
+void SceneManager::Debug()
+{
+	if (GetAsyncKeyState('T') & 0x8000)
+	{
+		ChangeFade(SceneType::Title);
+	}
+	if (GetAsyncKeyState('G') & 0x8000)
+	{
+		ChangeFade(SceneType::Game);
+	}
+	if (GetAsyncKeyState('R') & 0x8000)
+	{
+		Time::Instance().SetGameStartFlg(true);
+		ChangeFade(SceneType::Result);
+	}
 }
 
 void SceneManager::ChangeFade(SceneType nextScene)
