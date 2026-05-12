@@ -9,9 +9,13 @@ void Time::Init()
 {
     m_Tex.Load("Texture/UI/Number.png");
     m_ColonTex.Load("Texture/UI/Colon.png");
+    m_StartTex.Load("Texture/UI/START.png");
 
     m_CountDownUI.m_Pos = { 0,0 };
     m_CountDownUI.m_Scale = 20;
+
+    m_StartUI.m_Pos = { 0,0 };
+    m_StartUI.m_Scale = 10;
 
     PosScaleSet(true);
 
@@ -77,6 +81,10 @@ void Time::Update()
     m_CountDownUI.m_TransMat = Math::Matrix::CreateTranslation(m_CountDownUI.m_Pos.x, m_CountDownUI.m_Pos.y, 0);
     m_CountDownUI.m_ScaleMat = Math::Matrix::CreateScale(m_CountDownUI.m_Scale, m_CountDownUI.m_Scale, 0);
     m_CountDownUI.m_Mat = m_CountDownUI.m_ScaleMat * m_CountDownUI.m_TransMat;
+    //スタート
+    m_StartUI.m_TransMat = Math::Matrix::CreateTranslation(m_StartUI.m_Pos.x, m_StartUI.m_Pos.y, 0);
+    m_StartUI.m_ScaleMat = Math::Matrix::CreateScale(m_StartUI.m_Scale, m_StartUI.m_Scale, 0);
+    m_StartUI.m_Mat = m_StartUI.m_ScaleMat * m_StartUI.m_TransMat;
     //カウントアップ
     //分の十の位
     m_AliveMinTenUI.m_TransMat = Math::Matrix::CreateTranslation(m_AliveMinTenUI.m_Pos.x, m_AliveMinTenUI.m_Pos.y, 0);
@@ -104,8 +112,16 @@ void Time::Draw()
 {
     if (!m_GameStartFlg)
     {
-        SHADER.m_spriteShader.SetMatrix(m_CountDownUI.m_Mat);
-        SHADER.m_spriteShader.DrawTex(&m_Tex, Math::Rectangle((8 * (m_CountDown / 60) + 8), 0, 8, 8), 1.0f);
+        if(m_CountDown > 60)
+        {
+            SHADER.m_spriteShader.SetMatrix(m_CountDownUI.m_Mat);
+            SHADER.m_spriteShader.DrawTex(&m_Tex, Math::Rectangle((8 * (m_CountDown / 60)), 0, 8, 8), 1.0f);
+        }
+        else
+        {
+            SHADER.m_spriteShader.SetMatrix(m_StartUI.m_Mat);
+            SHADER.m_spriteShader.DrawTex(&m_StartTex, Math::Rectangle(0, 0, 48, 8), 1.0f);
+        }
     }
     else if(!m_GameOverFlg)
     {

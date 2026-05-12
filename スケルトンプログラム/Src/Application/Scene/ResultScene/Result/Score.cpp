@@ -12,30 +12,42 @@ void Score::Init()
 	m_RankScale = 5.0f;
 	m_RankPos = { 8,100 };
 
+	m_DrumRollTimer = 0.0f;
+
 	m_Rank = RankType::None;
 }
 
 void Score::Update()
 {
-	if (Time::Instance().GetAliveTime() <= 30)
+	m_DrumRollTimer -= 0.2f;
+	if (m_DrumRollTimer >= 120)
 	{
-		m_Rank = RankType::D;
+		int randRank = rand() % 5;
+
+		m_Rank = (RankType)randRank;
 	}
-	else if (Time::Instance().GetAliveTime() > 30 && Time::Instance().GetAliveTime() <= 60)
+	else
 	{
-		m_Rank = RankType::C;
-	}
-	else if(Time::Instance().GetAliveTime() > 60 && Time::Instance().GetAliveTime() <= 120)
-	{
-		m_Rank = RankType::B;
-	}
-	else if (Time::Instance().GetAliveTime() > 120 && Time::Instance().GetAliveTime() <= 180)
-	{
-		m_Rank = RankType::A;
-	}
-	else if (Time::Instance().GetAliveTime() > 180)
-	{
-		m_Rank = RankType::S;
+		if (Time::Instance().GetAliveTime() <= 30)
+		{
+			m_Rank = RankType::D;
+		}
+		else if (Time::Instance().GetAliveTime() > 30 && Time::Instance().GetAliveTime() <= 60)
+		{
+			m_Rank = RankType::C;
+		}
+		else if (Time::Instance().GetAliveTime() > 60 && Time::Instance().GetAliveTime() <= 120)
+		{
+			m_Rank = RankType::B;
+		}
+		else if (Time::Instance().GetAliveTime() > 120 && Time::Instance().GetAliveTime() <= 180)
+		{
+			m_Rank = RankType::A;
+		}
+		else if (Time::Instance().GetAliveTime() > 180)
+		{
+			m_Rank = RankType::S;
+		}
 	}
 
 	if (GetAsyncKeyState('1') & 0x8000)

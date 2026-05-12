@@ -42,4 +42,6 @@ private:
 	Math::Vector2 m_RankPos;
 	float m_RankScale;
 
+	float m_DrumRollTimer = 0;
+
 };

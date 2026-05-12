@@ -29,6 +29,8 @@ public:
 	void ChangeFade(SceneType nextScene);
 	void UpdateFade();
 
+	bool GetFadeEndFlg(){return m_FadeEndFlg;}
+
 	//次のシーンを予約する
 	void SetNextScene(SceneType _nextScene)
 	{
@@ -61,6 +63,7 @@ private:
 	Math::Vector2 m_Pos;
 
 	float FadeAlpha = 0.0f;
+	bool m_FadeEndFlg = true;
 
 private:
 

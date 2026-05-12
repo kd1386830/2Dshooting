@@ -40,8 +40,10 @@ private:
 
 	KdTexture m_Tex;
 	KdTexture m_ColonTex;
+	KdTexture m_StartTex;
 
 	TimeUI m_CountDownUI;
+	TimeUI m_StartUI;
 
 	TimeUI m_AliveMinTenUI;
 	TimeUI m_AliveMinOneUI;

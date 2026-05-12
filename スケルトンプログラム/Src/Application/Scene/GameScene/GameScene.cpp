@@ -15,8 +15,8 @@ void GameScene::Init()
 	GameOver::Instance().Init();
 
 	Time::Instance().SetOwner(this);
+	Time::Instance().StaartCountDown(4.0f);
 	Time::Instance().Init();
-	Time::Instance().StaartCountDown(3.0f);
 
 	//プレイヤー
 	std::shared_ptr<Player> player;

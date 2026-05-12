@@ -36,7 +36,6 @@ void SceneManager::Update()
 
 	Debug();
 
-
 	m_Mat = Math::Matrix::CreateTranslation(m_Pos.x, m_Pos.y, 0);
 }
 
@@ -75,6 +74,7 @@ void SceneManager::ChangeFade(SceneType nextScene)
 	m_NextScene = nextScene;
 	nowFade = FadeType::Fade_out;
 	FadeAlpha = 0.0f;
+	m_FadeEndFlg = false;
 }
 
 void SceneManager::UpdateFade()
@@ -100,6 +100,7 @@ void SceneManager::UpdateFade()
 		if (FadeAlpha <= 0.0f)
 		{
 			FadeAlpha = 0.0f;
+			m_FadeEndFlg = true;
 			nowFade = FadeType::Fade_no;
 		}
 	}
