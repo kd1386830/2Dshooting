@@ -3,11 +3,17 @@
 void Title::Init()
 {
 	m_Tex.Load("Texture/UI/Title.png");
-	m_Pos = { 0,120 };
+	m_Pos = { 0.0f,120.0f };
 }
 
 void Title::Update()
 {
+	m_Pos.y += m_Move;
+	if (m_Pos.y > 126.0f || m_Pos.y < 114.0f)
+	{
+		m_Move *= -1;
+	}
+
 	m_Mat = Math::Matrix::CreateTranslation(m_Pos.x, m_Pos.y, 0);
 }
 

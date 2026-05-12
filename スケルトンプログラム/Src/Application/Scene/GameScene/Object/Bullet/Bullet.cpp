@@ -35,6 +35,8 @@ void Bullet::Update()
 				{
 					OnHit();
 					obj->OnHit();
+
+					break;
 				}
 			}
 		}

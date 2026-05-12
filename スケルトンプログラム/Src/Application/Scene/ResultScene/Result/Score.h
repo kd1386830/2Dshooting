@@ -34,4 +34,12 @@ private:
 	Math::Vector2 m_Pos;
 	float m_Scale;
 
+	KdTexture m_RankTex;
+	Math::Matrix m_TransRankMat;
+	Math::Matrix m_ScaleRankMat;
+	Math::Matrix m_RankMat;
+
+	Math::Vector2 m_RankPos;
+	float m_RankScale;
+
 };

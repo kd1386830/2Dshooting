@@ -34,7 +34,7 @@ void StartButton::Update()
 void StartButton::Draw()
 {
 	SHADER.m_spriteShader.SetMatrix(m_Mat);
-	SHADER.m_spriteShader.DrawTex_Color(&m_Tex, Math::Rectangle(0, 0, 76, 8), &m_Color);
+	SHADER.m_spriteShader.DrawTex_Color(&m_Tex, Math::Rectangle(0, 0, 40, 8), &m_Color);
 }
 
 void StartButton::Release()

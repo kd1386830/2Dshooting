@@ -18,4 +18,6 @@ private:
 	Math::Matrix m_Mat;
 	Math::Vector2 m_Pos;
 
+	float m_Move = 0.2f;
+
 };

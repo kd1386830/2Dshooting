@@ -12,7 +12,7 @@ void Enemy::Init()
 	m_Mat = Math::Matrix::CreateTranslation(m_Pos.x, m_Pos.y, 0);
 
 	m_AliveFlg = true;
-	m_Radius = 32.0f;
+	m_Radius = 24.0f;
 
 	m_ObjType = ObjectType::Enemy;
 }
@@ -101,6 +101,7 @@ void Enemy::ChasePlayer()
 	}
 
 	m_Pos += m_EnemyVec;
+	
 }
 
 void Enemy::Release()

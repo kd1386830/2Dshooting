@@ -22,7 +22,7 @@ private:
 	Math::Color m_Color;
 
 	Math::Vector2 m_Pos;
-	Math::Vector2 m_Radius = { 38.0f,4.0f };
+	Math::Vector2 m_Radius = { 20.0f,4.0f };
 
 	float m_Scale;
 

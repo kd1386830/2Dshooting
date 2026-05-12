@@ -50,7 +50,10 @@ private:
 	int m_ShotWait = 0;			
 	int m_shotWaitTime = 15;	//弾の発射間隔
 
-	float m_ItemActiveTime = 5.0f * 60.0f;
+	float m_ItemActiveTime = 10.0f * 60.0f;
 	bool m_ItemActiveFlg = false;
+
+	float m_AnimCnt = 0;
+	float m_AnimWait;
 
 };

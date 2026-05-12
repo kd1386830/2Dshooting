@@ -34,7 +34,7 @@ void ReturnTitleButton::Update()
 void ReturnTitleButton::Draw()
 {
 	SHADER.m_spriteShader.SetMatrix(m_Mat);
-	SHADER.m_spriteShader.DrawTex_Color(&m_Tex, Math::Rectangle(0, 0, 109, 8), &m_Color);
+	SHADER.m_spriteShader.DrawTex_Color(&m_Tex, Math::Rectangle(0, 0, 40, 8), &m_Color);
 }
 
 void ReturnTitleButton::Release()

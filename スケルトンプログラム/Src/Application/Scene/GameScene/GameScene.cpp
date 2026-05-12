@@ -29,6 +29,22 @@ void GameScene::Init()
 
 void GameScene::Update()
 {
+	//=======================================
+	//デバッグ
+	if (GetAsyncKeyState('E') & 0x8000)
+	{
+		if (!KeyFlg)
+		{
+			EnemySpawnFlg = !EnemySpawnFlg;
+			KeyFlg = true;
+		}
+	}
+	else
+	{
+		KeyFlg = false;
+	}
+	//=======================================
+
 	GameOver::Instance().Update();
 
 	auto it = m_objList.begin();
@@ -55,15 +71,13 @@ void GameScene::Update()
 		m_objList[i]->Update();
 	}
 
-	
-	EnemySpawn();
+
+	if (EnemySpawnFlg)
+	{
+		EnemySpawn();
+	}
 	ItemSpawn();
 
-
-	if (GetAsyncKeyState('R') & 0x8000)
-	{
-		SceneManager::Instance().ChangeFade(SceneManager::SceneType::Result);
-	}
 }
 
 void GameScene::Draw()
@@ -83,43 +97,68 @@ void GameScene::Draw()
 
 void GameScene::EnemySpawn()
 {	
+	int EnemyCount = 0;
+
+	for (auto& obj : m_objList)
+	{
+		if (obj->GetObjType() == BaseObject::ObjectType::Enemy)
+		{
+			EnemyCount++;
+		}
+	}
+
 	// 通常湧き
 	m_SpawnTimer ++;
 
 	if (m_SpawnTimer >= m_SpawnInterval)
 	{
-		int count = rand() % m_RandTop + m_RandBottom;
-
-		for (int i = 0; i < count; i++)
+		if (EnemyCount < m_MaxEnemy)
 		{
-			std::shared_ptr<Enemy> enemy;
-			enemy = std::make_shared<Enemy>();
-			enemy->Init();
-			enemy->SetOwner(this);
-			m_objList.push_back(enemy);
-		}
+			int count = rand() % m_RandTop + m_RandBottom;
 
+			for (int i = 0; i < count; i++)
+			{
+				std::shared_ptr<Enemy> enemy;
+				enemy = std::make_shared<Enemy>();
+				enemy->Init();
+				enemy->SetOwner(this);
+				m_objList.push_back(enemy);
+
+				EnemyCount++;
+			}
+		}
 		m_SpawnTimer = 0.0f;
 	}
 
 	// ウェーブ湧き
 	m_WaveTimer ++;
+	int WaveCount = 0;
 
 	if (m_WaveTimer >= m_WaveInterval)
 	{
-		for (int i = 0; i < m_WaveCount; i++)
+		if (EnemyCount < m_MaxEnemy)
 		{
-			std::shared_ptr<Enemy> enemy;
-			enemy = std::make_shared<Enemy>();
-			enemy->Init();
-			enemy->SetOwner(this);
-			m_objList.push_back(enemy);
+			for (int i = 0; i < m_WaveCount; i++)
+			{
+				std::shared_ptr<Enemy> enemy;
+				enemy = std::make_shared<Enemy>();
+				enemy->Init();
+				enemy->SetOwner(this);
+				m_objList.push_back(enemy);
+
+				EnemyCount++;
+			}
+			WaveCount++;
 		}
 
-		m_RandTop++;
-		m_RandBottom++;
+		if (WaveCount >= 2)
+		{
+			m_RandTop++;
+			m_RandBottom++;
+			WaveCount = 0;
+		}
 		m_WaveTimer = 0.0f;
-		m_WaveCount += 5;
+		m_WaveCount += 2;
 	}
 }
 
@@ -135,7 +174,6 @@ void GameScene::ItemSpawn()
 		item->SetOwner(this);
 
 		m_objList.push_back(item);
-
 
 		m_ItemTimer = 0.0f;
 	}

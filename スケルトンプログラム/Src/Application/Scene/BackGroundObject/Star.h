@@ -14,7 +14,7 @@ public:
 
 private:
 
-	static const int StarNum = 20;
+	static const int StarNum = 15;
 
 	KdTexture m_Tex;
 

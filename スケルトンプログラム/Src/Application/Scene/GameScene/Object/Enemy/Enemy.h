@@ -36,7 +36,7 @@ private:
 	Math::Matrix m_TransMat;
 	Math::Matrix m_ScaleMat;
 
-	float m_Scale = 4;
+	float m_Scale = 3;
 	float m_AnimCnt = 0;
 	float m_AnimWait = rand() % 2 * 60.0f;
 };

@@ -4,41 +4,52 @@
 void Score::Init()
 {
 	m_Tex.Load("Texture/UI/Rank.png");
+	m_RankTex.Load("Texture/UI/Rank_Sprite.bmp");
 
 	m_Scale = 20.0f;
-	m_Pos = { 0,170 };
+	m_Pos = { 0,190 };
+
+	m_RankScale = 5.0f;
+	m_RankPos = { 8,100 };
 
 	m_Rank = RankType::None;
 }
 
 void Score::Update()
 {
-	if (Time::Instance().GetAliveTime() <= 20)
+	if (Time::Instance().GetAliveTime() <= 30)
 	{
 		m_Rank = RankType::D;
 	}
-	else if (Time::Instance().GetAliveTime() > 20 && Time::Instance().GetAliveTime() <= 40)
+	else if (Time::Instance().GetAliveTime() > 30 && Time::Instance().GetAliveTime() <= 60)
 	{
 		m_Rank = RankType::C;
 	}
-	else if(Time::Instance().GetAliveTime() > 40 && Time::Instance().GetAliveTime() <= 60)
+	else if(Time::Instance().GetAliveTime() > 60 && Time::Instance().GetAliveTime() <= 120)
 	{
 		m_Rank = RankType::B;
 	}
-	else if (Time::Instance().GetAliveTime() > 60 && Time::Instance().GetAliveTime() <= 120)
+	else if (Time::Instance().GetAliveTime() > 120 && Time::Instance().GetAliveTime() <= 180)
 	{
 		m_Rank = RankType::A;
 	}
-	else if (Time::Instance().GetAliveTime() > 120)
+	else if (Time::Instance().GetAliveTime() > 180)
 	{
 		m_Rank = RankType::S;
 	}
 
-	//m_Rank = RankType::B;
+	if (GetAsyncKeyState('1') & 0x8000)
+	{
+		m_Rank = RankType::S;
+	}
 
 	m_TransMat = Math::Matrix::CreateTranslation(m_Pos.x, m_Pos.y, 0);
 	m_ScaleMat = Math::Matrix::CreateScale(m_Scale, m_Scale, 0);
 	m_Mat = m_ScaleMat * m_TransMat;
+
+	m_TransRankMat = Math::Matrix::CreateTranslation(m_RankPos.x, m_RankPos.y, 0);
+	m_ScaleRankMat = Math::Matrix::CreateScale(m_RankScale, m_RankScale, 0);
+	m_RankMat = m_ScaleRankMat * m_TransRankMat;
 }
 
 void Score::Draw()
@@ -62,9 +73,13 @@ void Score::Draw()
 		SHADER.m_spriteShader.DrawTex(&m_Tex, Math::Rectangle(32, 0, 8, 8), 1.0f);
 		break;
 	}
+
+	SHADER.m_spriteShader.SetMatrix(m_RankMat);
+	SHADER.m_spriteShader.DrawTex(&m_RankTex, Math::Rectangle(0, 0, 32, 8), 1.0f);
 }
 
 void Score::Release()
 {
 	m_Tex.Release();
+	m_RankTex.Release();
 }

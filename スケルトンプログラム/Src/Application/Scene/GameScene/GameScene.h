@@ -40,9 +40,16 @@ private:
 	int m_WaveCount = 5; //一度に出す数
 
 	int m_ItemTimer = 0.0f;
-	int m_ItemInterval = 10.0f * 60.0f;
+	int m_ItemInterval = 15.0f * 60.0f;
 
 	int m_RandTop = 1;
 	int m_RandBottom = 2;
+
+	const int m_MaxEnemy = 200;
+
+	//デバッグ用
+	bool EnemySpawnFlg = true;
+
+	bool KeyFlg = false;
 
 };

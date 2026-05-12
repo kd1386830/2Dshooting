@@ -23,7 +23,7 @@ void Sparkle::Update()
 
 	m_Pos = m_Player->GetPos();
 
-	m_AnimCnt += 0.2f;
+	m_AnimCnt += 0.1f;
 
 	if (m_AnimCnt >= 4)
 	{
@@ -43,8 +43,10 @@ void Sparkle::Draw()
 {
 	if (!m_Player->GetAliveFlg())return;
 
+	D3D.SetBlendState(BlendMode::Add);
 	SHADER.m_spriteShader.SetMatrix(m_Mat);
 	SHADER.m_spriteShader.DrawTex_Color(&m_Tex, Math::Rectangle(16 * (int)m_AnimCnt, 0, 16, 16), &m_Color);
+	D3D.SetBlendState(BlendMode::Alpha);
 }
 
 void Sparkle::Release()

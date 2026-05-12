@@ -14,8 +14,8 @@ void Player::Init()
 
 	m_Pos = { 0,0 };
 	m_AliveFlg = true;
-	m_Radius = 32.0f;
-	m_Scale = 4;
+	m_Radius = 24.0f;
+	m_Scale = 3;
 	m_shotWaitTime = 15;
 
 	m_ObjType = ObjectType::Player;
@@ -26,6 +26,12 @@ void Player::Update()
 	PlayerMove();
 	PlayerRotation();
 	PlayerScreenLimit();
+
+	m_AnimCnt += 0.2f;
+	if (m_AnimCnt >= 2)
+	{
+		m_AnimCnt = 0;
+	}
 
 	m_ShotWait++;
 
@@ -93,7 +99,7 @@ void Player::Update()
 void Player::Draw()
 {
 	SHADER.m_spriteShader.SetMatrix(m_Mat);
-	SHADER.m_spriteShader.DrawTex(&m_Tex, Math::Rectangle(0, 0, 16, 16), 1.0f);
+	SHADER.m_spriteShader.DrawTex(&m_Tex, Math::Rectangle(16 * (int)m_AnimCnt, 0, 16, 23), 1.0f);
 }
 
 void Player::OnHit()
