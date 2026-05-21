@@ -66,7 +66,7 @@ void Item::OnHit()
 					player->SetSpeed(8.0f);
 					break;
 				case Item::ItemType::ShotSpdUp:
-					player->SetShotWaitTime(5);
+					player->SetShotWaitTime(8);
 					break;
 				}
 			}
